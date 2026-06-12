@@ -134,12 +134,12 @@
   /* ── Palm Image Paths ─────────────────────────────────────── */
   /* UPDATE THESE after uploading to WordPress Media Library    */
 
-  --palm-dark: url("https://eliteestheticsa.com/wp-content/uploads/2025/05/leaves-1.webp");
+  --palm-dark: url("../images/leaves-1.webp");
   /* Dark background with palm fronds on left and right sides  */
   /* Local path example:                                        */
   /* url('/wp-content/uploads/2026/04/Depositphotos_203212990_L.jpg') */
 
-  --palm-dense: url("https://eliteestheticsa.com/wp-content/uploads/2025/05/leaves-2.webp");
+  --palm-dense: url("../images/leaves-2.webp");
   /* Dense close-up green palm leaves                          */
   /* Local path example:                                        */
   /* url('/wp-content/uploads/2026/04/Palm_Leaves__1_.jpeg')   */
@@ -661,6 +661,8 @@ ol {
 .hero-content .body-large,
 .hero-content .body-base {
   color: rgba(212, 201, 184, 0.9);
+  font-weight: 400;
+  font-size: 16px;
 }
 
 /* Standard dark-section overlay with full palm background */
@@ -1410,14 +1412,15 @@ details[open] .faq-q-icon::after {
 }
 .trust-bar__stars {
   color: var(--color-gold);
-  font-size: 10px;
+  font-size: 15px;
   letter-spacing: 1.5px;
+  line-height: 1;
 }
 .trust-bar__label {
   font-family: var(--font-sans);
-  font-size: 9px;
+  font-size: 10.5px;
   font-weight: 500;
-  color: rgba(212, 201, 184, 0.4);
+  color: rgba(212, 201, 184, 0.7);
   text-transform: uppercase;
   letter-spacing: 1.2px;
 }
@@ -1564,11 +1567,12 @@ details[open] .faq-q-icon::after {
 }
 .trust-micro-text {
   font-family: var(--font-sans);
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 1.2px;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: rgba(212, 201, 184, 0.9);
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.75), 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* ── Contact meta row ── */
