@@ -644,9 +644,9 @@ ol {
   inset: 0;
   background: linear-gradient(
     160deg,
-    rgba(10, 21, 14, 0.62) 0%,
-    rgba(13, 31, 20, 0.8) 45%,
-    rgba(10, 18, 12, 0.7) 100%
+    rgba(10, 21, 14, 0.2) 0%,
+    rgba(13, 31, 20, 0.32) 45%,
+    rgba(10, 18, 12, 0.25) 100%
   );
   z-index: 1;
 }
@@ -655,6 +655,12 @@ ol {
 .hero-content {
   position: relative;
   z-index: 5;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.75), 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content .body-large,
+.hero-content .body-base {
+  color: rgba(212, 201, 184, 0.9);
 }
 
 /* Standard dark-section overlay with full palm background */
