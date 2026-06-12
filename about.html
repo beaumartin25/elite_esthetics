@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Learn the story behind Elite Esthetics Academy — why Troy Martin founded EEA in Draper, Utah, and the mission, vision, and values that shape everything we do."
+    />
+    <meta
+      name="keywords"
+      content="about Elite Esthetics Academy, esthetics school Draper Utah, esthetics education Utah, EEA mission vision values, founder story"
+    />
+    <title>About Us &mdash; Elite Esthetics Academy | Draper, Utah</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Brand Stylesheet -->
+    <link rel="stylesheet" href="assets/css/elite-esthetics-brand.css" />
+
+    <!-- Web Components (nav + footer) -->
+    <script src="assets/js/components.js" defer></script>
+
+    <style>
+      /* ─────────────────────────────────────────────────────────────
+       PAGE-SPECIFIC STYLES — ABOUT US
+       ───────────────────────────────────────────────────────────── */
+
+      /* ── STORY SECTION ── */
+      .story-layout > div:first-child p.body-base {
+        font-size: 16px;
+        line-height: 1.95;
+      }
+      .story-layout {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 80px;
+        align-items: start;
+      }
+      .founder-photo-card {
+        position: sticky;
+        top: 96px;
+      }
+      .founder-photo-card__img {
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+        filter: brightness(0.92) saturate(0.88);
+        transition: transform 0.55s ease, filter 0.4s ease;
+      }
+      .founder-photo-card:hover .founder-photo-card__img {
+        transform: scale(1.02);
+        filter: brightness(0.98) saturate(1);
+      }
+      .founder-photo-card__footer {
+        padding: 16px 20px 18px;
+        background: var(--color-white);
+        border: 1px solid rgba(201, 169, 110, 0.18);
+        border-top: none;
+      }
+      .founder-photo-card__name {
+        font-family: var(--font-serif);
+        font-size: 19px;
+        font-weight: 600;
+        color: var(--color-bg-green-text);
+        line-height: 1.2;
+        margin-bottom: 3px;
+      }
+      .founder-photo-card__title {
+        font-family: var(--font-sans);
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--color-gold);
+      }
+      .leadership-photo {
+        margin-top: 56px;
+        overflow: hidden;
+      }
+      .leadership-photo__img {
+        width: 100%;
+        aspect-ratio: 16 / 7;
+        object-fit: cover;
+        object-position: center 45%;
+        display: block;
+        filter: brightness(0.92) saturate(0.88);
+        transition: transform 0.55s ease, filter 0.4s ease;
+      }
+      .leadership-photo:hover .leadership-photo__img {
+        transform: scale(1.02);
+        filter: brightness(0.98) saturate(1);
+      }
+      .leadership-photo__caption {
+        padding: 14px 20px 16px;
+        background: var(--color-white);
+        border: 1px solid rgba(201, 169, 110, 0.18);
+        border-top: none;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .leadership-photo__caption-bar {
+        width: 22px;
+        height: 1px;
+        background: var(--color-gold);
+        opacity: 0.6;
+        flex-shrink: 0;
+      }
+      .leadership-photo__caption-text {
+        font-family: var(--font-sans);
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--color-gold);
+      }
+
+      /* ── ACCREDITATION ── */
+      .accred-panel {
+        position: relative;
+        border: 1px solid var(--color-border-gold);
+        padding: 44px 48px;
+        background: rgba(10, 21, 14, 0.5);
+        backdrop-filter: blur(4px);
+      }
+      .accred-panel::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--color-gold),
+          var(--color-gold-light),
+          var(--color-gold),
+          transparent
+        );
+      }
+      .accred-tag {
+        font-family: var(--font-sans);
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: rgba(201, 169, 110, 0.5);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+      .accred-tag::before {
+        content: "";
+        display: block;
+        width: 14px;
+        height: 1px;
+        background: var(--color-gold);
+        opacity: 0.4;
+        flex-shrink: 0;
+      }
+      .accred-heading {
+        font-family: var(--font-serif);
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--color-white);
+        margin-bottom: 16px;
+        line-height: 1.2;
+      }
+      .accred-body {
+        font-family: var(--font-sans);
+        font-size: var(--text-sm);
+        font-weight: 300;
+        color: rgba(212, 201, 184, 0.48);
+        line-height: 1.88;
+        max-width: 780px;
+      }
+      .accred-body strong {
+        color: rgba(212, 201, 184, 0.65);
+        font-weight: 500;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 960px) {
+        .story-layout {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+        .founder-photo-card {
+          position: static;
+          max-width: 380px;
+        }
+        .leadership-photo__img {
+          aspect-ratio: 16 / 9;
+        }
+        .accred-panel {
+          padding: 36px 30px;
+        }
+      }
+      @media (max-width: 480px) {
+        .accred-panel {
+          padding: 28px 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <site-nav></site-nav>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+     PAGE HERO
+     ═══════════════════════════════════════════════════════════════ -->
+    <div class="page-hero" role="banner">
+      <div class="section-palm-bg" aria-hidden="true"></div>
+      <div class="section-palm-overlay" aria-hidden="true"></div>
+
+      <div class="page-hero__content container">
+        <div class="eyebrow eyebrow--center animate-fade-up animate-delay-1">
+          Elite Esthetics Academy
+        </div>
+
+        <h1
+          class="heading-1 animate-fade-up animate-delay-2"
+          style="margin-bottom: 18px"
+        >
+          Our <em>Story</em>
+        </h1>
+
+        <p
+          class="body-large animate-fade-up animate-delay-3"
+          style="max-width: 540px; margin: 0 auto 36px"
+        >
+          Founded in Draper, Utah on a simple belief: students deserve an
+          education that prepares them for a career &mdash; not just a license.
+        </p>
+
+        <!-- Jump links -->
+        <nav
+          class="nav-pills nav-pills--center animate-fade-up animate-delay-4"
+          aria-label="Page sections"
+        >
+          <a href="#story" class="nav-pill">Our Story</a>
+          <a href="#mission" class="nav-pill">Mission &amp; Vision</a>
+          <a href="#values" class="nav-pill">Core Values</a>
+          <a href="#accreditation" class="nav-pill">Accreditation</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+     SECTION 1 — OUR STORY
+     ═══════════════════════════════════════════════════════════════ -->
+    <section
+      class="section bg-cream"
+      id="story"
+      style="position: relative; overflow: hidden"
+    >
+      <div class="palm-deco palm-deco--dense-tr" aria-hidden="true"></div>
+      <div class="palm-deco palm-deco--dense-bl" aria-hidden="true"></div>
+
+      <div class="container" style="position: relative; z-index: 2">
+        <div class="story-layout">
+
+        <!-- Story Text -->
+        <div>
+          <div class="eyebrow eyebrow--dark">Our Story</div>
+          <h2 class="heading-2 on-light" style="margin-bottom: 28px">
+            Why Troy Martin Founded<br /><em>Elite Esthetics Academy</em>
+          </h2>
+
+          <!-- Founder Pull Quote -->
+          <div class="pull-quote pull-quote--light" style="margin-bottom: 32px">
+            <p>
+              &ldquo;I started Elite Esthetics Academy because I saw talented
+              students graduating with licenses but still feeling unprepared
+              for the realities of the industry. I wanted to create a school
+              that combines exceptional technical training with mentorship,
+              confidence-building, and business education so graduates leave
+              ready to build meaningful, successful careers &mdash; not just
+              pass a test.&rdquo;
+            </p>
+            <div
+              style="display: flex; align-items: center; gap: 12px; margin-top: 16px"
+            >
+              <div
+                style="width: 22px; height: 1px; background: var(--color-gold); opacity: 0.6; flex-shrink: 0"
+                aria-hidden="true"
+              ></div>
+              <div>
+                <div
+                  style="font-family: var(--font-sans); font-size: 10px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--color-gold)"
+                >
+                  Troy Martin
+                </div>
+                <div
+                  style="font-family: var(--font-sans); font-size: 10px; font-weight: 300; color: var(--color-text-lighter); letter-spacing: 0.3px"
+                >
+                  Founder &amp; CEO, Elite Esthetics Academy
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vision Paragraphs -->
+          <h3
+            class="heading-4 on-light"
+            style="margin-bottom: 14px; font-size: 18px"
+          >
+            Our Vision for Esthetics Education
+          </h3>
+          <p class="body-base on-light" style="margin-bottom: 16px">
+            The ideal esthetics school does more than help students earn a
+            license &mdash; it prepares them for a successful, long-term
+            career. It combines expert instruction, hands-on experience,
+            mentorship, and real-world business education in an environment
+            where students feel supported, challenged, and inspired to grow.
+          </p>
+          <p class="body-base on-light" style="margin-bottom: 32px">
+            At Elite Esthetics Academy, we&rsquo;ve built our program around
+            that vision. We believe students learn best through hands-on
+            practice, personalized guidance, and exposure to the latest
+            industry techniques and technology. That&rsquo;s why our
+            curriculum goes beyond state requirements to provide real-world
+            training that helps students build confidence, refine their
+            skills, and develop a professional mindset.
+          </p>
+
+          <!-- Today Paragraphs -->
+          <h3
+            class="heading-4 on-light"
+            style="margin-bottom: 14px; font-size: 18px"
+          >
+            Elite Esthetics Academy Today
+          </h3>
+          <p class="body-base on-light" style="margin-bottom: 16px">
+            Today, Elite Esthetics Academy is more than a school &mdash;
+            it&rsquo;s a community dedicated to developing the next
+            generation of confident, skilled estheticians. What we&rsquo;re
+            most proud of is the success of our students and graduates who
+            leave with not only a license, but the knowledge, confidence, and
+            passion to build meaningful careers in the beauty industry.
+          </p>
+          <p class="body-base on-light" style="margin-bottom: 36px">
+            We&rsquo;ve created an environment where education is personal,
+            hands-on, and focused on real-world success. When students walk
+            through our doors, we want them to feel welcomed, supported, and
+            inspired by what&rsquo;s possible for their future. Most
+            importantly, we want every student to know they belong here and
+            that we are fully invested in helping them achieve their goals.
+          </p>
+
+          <div class="btn-group">
+            <a href="team.html" class="btn btn--dark">Meet Our Team</a>
+            <a
+              href="book-a-tour.html"
+              class="btn btn--ghost"
+              style="border-color: rgba(26,46,32,0.3); color: var(--color-text-light)"
+              >Book a Free Tour</a
+            >
+          </div>
+        </div>
+
+        <!-- Troy's Headshot — right column -->
+        <div class="founder-photo-card">
+          <img
+            src="assets/images/troy-headshot.jpg"
+            alt="Troy Martin, Founder and CEO of Elite Esthetics Academy"
+            class="founder-photo-card__img"
+            loading="lazy"
+          />
+          <div class="founder-photo-card__footer">
+            <div class="founder-photo-card__name">Troy Martin</div>
+            <div class="founder-photo-card__title">Founder &amp; CEO</div>
+          </div>
+        </div>
+
+        </div><!-- end .story-layout -->
+
+        <!-- Leadership Team Photo — full-width below the 2-col split -->
+        <div class="leadership-photo">
+          <img
+            src="assets/images/leadership-team.jpg"
+            alt="The Elite Esthetics Academy leadership and instructor team"
+            class="leadership-photo__img"
+            loading="lazy"
+          />
+          <div class="leadership-photo__caption">
+            <div class="leadership-photo__caption-bar" aria-hidden="true"></div>
+            <span class="leadership-photo__caption-text">
+              The Elite Esthetics Academy Team &mdash; Draper, Utah
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+     SECTION 2 — MISSION, VISION & WELCOME
+     ═══════════════════════════════════════════════════════════════ -->
+    <section
+      class="section bg-dark"
+      id="mission"
+      style="position: relative; overflow: hidden"
+    >
+      <div class="palm-deco palm-deco--dark-left" aria-hidden="true"></div>
+      <div class="palm-deco palm-deco--dark-right" aria-hidden="true"></div>
+
+      <div class="container" style="position: relative; z-index: 2">
+        <!-- Section Header -->
+        <div class="section-header">
+          <div class="eyebrow eyebrow--center">Mission &amp; Vision</div>
+          <h2 class="heading-2" style="margin-bottom: 14px">
+            What We <em>Stand For</em>
+          </h2>
+          <p class="body-large" style="max-width: 520px; margin: 0 auto">
+            Every decision at Elite Esthetics Academy is guided by a clear
+            purpose &mdash; to empower the next generation of estheticians
+            with the skills and confidence to lead.
+          </p>
+        </div>
+
+        <!-- Welcome Message Quote Block -->
+        <div class="quote-block" style="margin-bottom: 40px">
+          <span class="quote-block__mark" aria-hidden="true">&ldquo;</span>
+          <p class="quote-block__text">
+            Welcome to Elite Esthetics Academy, where your journey to becoming
+            a confident, skilled, and successful esthetician begins. Our
+            academy is more than just a place of learning &mdash; it&rsquo;s a
+            professional, ethical, and innovative environment where students
+            are empowered to pursue excellence and realize their goals in the
+            esthetic and wellness industry.
+          </p>
+          <span class="quote-block__cite">
+            &mdash;&nbsp; Elite Esthetics Academy
+          </span>
+        </div>
+
+        <!-- Mission + Vision Cards -->
+        <div class="grid-2" style="align-items: stretch">
+          <!-- Mission -->
+          <div class="mvv-card">
+            <div class="mvv-card__type">Our Mission</div>
+            <div class="mvv-card__heading">Transformative Education</div>
+            <p class="mvv-card__text">
+              Our mission at Elite Esthetics Academy is to deliver
+              transformative education that integrates technical mastery,
+              professional development, and ethical practice. We empower
+              students with the skills, confidence, and mindset to succeed in
+              the esthetic and wellness industry, fostering a learning
+              environment rooted in innovation, integrity, and
+              student-centered excellence.
+            </p>
+          </div>
+
+          <!-- Vision -->
+          <div class="mvv-card">
+            <div class="mvv-card__type">Our Vision</div>
+            <div class="mvv-card__heading">Leading the Future of Esthetics</div>
+            <p class="mvv-card__text">
+              Elite Esthetics Academy is dedicated to cultivating exceptional
+              estheticians through a culture of excellence, industry
+              innovation, and a growth mindset. We develop empowered,
+              confident, and future-focused graduates who are prepared to lead
+              in the evolving world of esthetics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+     SECTION 3 — CORE VALUES
+     ═══════════════════════════════════════════════════════════════ -->
+    <section
+      class="section bg-mid"
+      id="values"
+      style="position: relative; overflow: hidden"
+    >
+      <div class="palm-deco palm-deco--dark-right" aria-hidden="true"></div>
+
+      <div class="container" style="position: relative; z-index: 2">
+        <div class="section-header">
+          <div class="eyebrow eyebrow--center">Core Values</div>
+          <h2 class="heading-2" style="margin-bottom: 14px">
+            The Seven Principles We <em>Live By</em>
+          </h2>
+          <p class="body-large" style="max-width: 500px; margin: 0 auto">
+            These aren&rsquo;t words on a wall &mdash; they&rsquo;re the
+            standards we hold ourselves to every single day.
+          </p>
+        </div>
+
+        <div class="values-grid">
+          <!-- Value 1 -->
+          <div class="value-card">
+            <div class="value-card__num" aria-hidden="true">1</div>
+            <div class="value-card__name">Growth Mindset</div>
+            <p class="value-card__desc">
+              We believe in continuous learning, resilience, and the power of
+              personal and professional growth.
+            </p>
+          </div>
+
+          <!-- Value 2 -->
+          <div class="value-card">
+            <div class="value-card__num" aria-hidden="true">2</div>
+            <div class="value-card__name">Student Success</div>
+            <p class="value-card__desc">
+              Our programs are designed to help students achieve their personal
+              and professional goals.
+            </p>
+          </div>
+
+          <!-- Value 3 -->
+          <div class="value-card">
+            <div class="value-card__num" aria-hidden="true">3</div>
+            <div class="value-card__name">Integrity</div>
+            <p class="value-card__desc">
+              We operate with honesty, accountability, and respect for our
+              students, our industry, and one another.
+            </p>
+          </div>
+
+          <!-- Value 4 -->
+          <div class="value-card">
+            <div class="value-card__num" aria-hidden="true">4</div>
+            <div class="value-card__name">Excellence</div>
+            <p class="value-card__desc">
+              We hold ourselves to the highest standards. Excellence
+              isn&rsquo;t our goal &mdash; it&rsquo;s our starting point.
+            </p>
+          </div>
+
+          <!-- Value 5 -->
+          <div class="value-card">
+            <div class="value-card__num" aria-hidden="true">5</div>
+            <div class="value-card__name">Innovation</div>
+            <p class="value-card__desc">
+              We embrace change and stay ahead of industry trends so our
+              students graduate ready for today&rsquo;s market.
+            </p>
+          </div>
+
+          <!-- Value 6 -->
+          <div class="value-card">
+            <div class="value-card__num" aria-hidden="true">6</div>
+            <div class="value-card__name">Teamwork</div>
+            <p class="value-card__desc">
+              We believe in collaboration and kindness. The best results come
+              when we work together.
+            </p>
+          </div>
+
+          <!-- Value 7 -->
+          <div class="value-card">
+            <div class="value-card__num" aria-hidden="true">7</div>
+            <div class="value-card__name">Accountability</div>
+            <p class="value-card__desc">
+              Success begins with personal responsibility. We own our actions
+              and grow from them.
+            </p>
+          </div>
+
+          <!-- CTA Cell (8th slot — completes the 4×2 grid) -->
+          <div class="value-cta-cell">
+            <a href="book-a-tour.html" class="btn btn--gold btn--sm"
+              >See It In Person</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+     SECTION 4 — ACCREDITATION & LICENSING
+     ═══════════════════════════════════════════════════════════════ -->
+    <section
+      class="section"
+      id="accreditation"
+      style="
+        background-color: var(--color-bg-darkest);
+        position: relative;
+        overflow: hidden;
+      "
+    >
+      <div class="palm-deco palm-deco--dark-left" aria-hidden="true"></div>
+
+      <div class="container" style="position: relative; z-index: 2">
+        <div class="section-header" style="margin-bottom: 44px">
+          <div class="eyebrow eyebrow--center">Accreditation &amp; Licensing</div>
+          <h2 class="heading-2" style="margin-bottom: 0">
+            Oversight &amp; <em>Compliance</em>
+          </h2>
+        </div>
+
+        <div class="accred-panel">
+          <div class="accred-tag">Official Statement</div>
+          <h3 class="accred-heading">NACCAS &amp; Utah DOPL</h3>
+          <p class="accred-body">
+            Elite Esthetics Academy has applied for accreditation through the
+            <strong
+              >National Accrediting Commission of Career Arts &amp; Sciences
+              (NACCAS)</strong
+            >. While the application is in progress, accreditation has not yet
+            been granted and is not guaranteed. Licensure is granted through
+            the
+            <strong
+              >Utah Division of Occupational and Professional Licensing
+              (DOPL)</strong
+            >.
+            <strong>School License&nbsp;#:&nbsp;14252667-1111</strong>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+     FINAL CTA
+     ═══════════════════════════════════════════════════════════════ -->
+    <section class="cta-section bg-deep">
+      <div
+        class="section-palm-bg"
+        style="opacity: 0.3"
+        aria-hidden="true"
+      ></div>
+      <div class="section-palm-overlay" aria-hidden="true"></div>
+
+      <div
+        class="container"
+        style="position: relative; z-index: 2; text-align: center"
+      >
+        <span
+          class="gold-bar"
+          style="margin: 0 auto 22px"
+          aria-hidden="true"
+        ></span>
+        <div class="eyebrow eyebrow--center">Take the Next Step</div>
+        <h2 class="heading-1" style="margin-bottom: 18px">
+          Ready to Start Your <em>Career in Esthetics?</em>
+        </h2>
+        <p class="body-large" style="max-width: 520px; margin: 0 auto 36px">
+          Come see our facility, meet the instructors, and get your questions
+          answered &mdash; no pressure, no commitment. Tours are free and
+          available most days.
+        </p>
+
+        <div class="btn-group btn-group--center" style="margin-bottom: 40px">
+          <a href="book-a-tour.html" class="btn btn--gold btn--lg"
+            >Book a Free Tour</a
+          >
+          <a href="enroll.html" class="btn btn--ghost btn--lg"
+            >Apply &amp; Enroll</a
+          >
+        </div>
+
+        <div class="contact-row" style="justify-content: center">
+          <a href="tel:4354857546" class="contact-row__link">
+            <div class="contact-row__dot" aria-hidden="true"></div>
+            (435) 485-7546
+          </a>
+          <a href="mailto:info@eliteestheticsa.com" class="contact-row__link">
+            <div class="contact-row__dot" aria-hidden="true"></div>
+            info@eliteestheticsa.com
+          </a>
+          <span
+            style="
+              display: flex;
+              align-items: center;
+              gap: 7px;
+              font-family: var(--font-sans);
+              font-size: var(--text-sm);
+              font-weight: 300;
+              color: var(--color-text-muted);
+            "
+          >
+            <div class="contact-row__dot" aria-hidden="true"></div>
+            66 E Wadsworth Park Dr, Suite 140 &middot; Draper, UT 84020
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <site-footer></site-footer>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+     JSON-LD STRUCTURED DATA
+     ═══════════════════════════════════════════════════════════════ -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Elite Esthetics Academy",
+        "description": "Elite Esthetics Academy is an esthetics school in Draper, Utah offering Master Esthetics, Lash & Brow, and Instructor programs with real med-spa equipment and a 15:1 student-to-instructor ratio.",
+        "url": "https://eliteestheticsa.com",
+        "logo": "https://eliteestheticsa.com/wp-content/uploads/logo-full.png",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "66 E Wadsworth Park Dr, Suite 140",
+          "addressLocality": "Draper",
+          "addressRegion": "UT",
+          "postalCode": "84020",
+          "addressCountry": "US"
+        },
+        "telephone": "+14354857546",
+        "email": "info@eliteestheticsa.com",
+        "foundingDate": "2024",
+        "founder": {
+          "@type": "Person",
+          "name": "Troy Martin",
+          "jobTitle": "Founder & CEO"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Esthetics Programs",
+          "itemListElement": [
+            {
+              "@type": "Course",
+              "name": "Master Esthetics — 1200 Hour",
+              "description": "Comprehensive esthetics training covering advanced skincare, med-spa modalities, laser, microneedling, chemical peels, and business development."
+            },
+            {
+              "@type": "Course",
+              "name": "Master Esthetics — 675 Hour",
+              "description": "A focused, accelerated path to esthetics licensure in Utah."
+            },
+            {
+              "@type": "Course",
+              "name": "Lash & Brow Program",
+              "description": "Specialized training in lash extensions, brow shaping, lamination, and tinting."
+            },
+            {
+              "@type": "Course",
+              "name": "Instructor Training Course",
+              "description": "Esthetics instructor credential program for licensed estheticians."
+            }
+          ]
+        }
+      }
+    </script>
+  </body>
+</html>
