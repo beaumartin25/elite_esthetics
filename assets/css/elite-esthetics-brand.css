@@ -1,0 +1,1962 @@
+/*
+  ================================================================
+  ELITE ESTHETICS ACADEMY — BRAND STYLESHEET
+  ================================================================
+  Version:  1.0
+  Updated:  April 2026
+  Author:   Elite Esthetics Academy
+ 
+  CONTENTS
+  ────────────────────────────────────────────────────────────────
+  1.  CSS Custom Properties (Design Tokens)
+  2.  Google Fonts Import
+  3.  Reset & Base
+  4.  Typography Scale
+  5.  Section Eyebrows & Labels
+  6.  Buttons
+  7.  Gold Decorative Lines
+  8.  Section Layouts & Backgrounds
+  9.  Palm Leaf Decorations
+  10. Cards & Bordered Panels
+  11. Grid Systems
+  12. Accordion / FAQ Items
+  13. Forms
+  14. Trust Bar / Stats
+  15. Pull Quotes & Blockquotes
+  16. Navigation Pills / Jump Links
+  17. Utility Classes
+  18. Mobile Sticky CTA Bar
+  19. Responsive Breakpoints
+  20. Animations & Transitions
+ 
+  WORDPRESS INSTALL
+  ────────────────────────────────────────────────────────────────
+  Option A (Recommended):
+    Appearance → Customize → Additional CSS → paste entire file
+ 
+  Option B:
+    Upload to your child theme folder and enqueue via functions.php:
+    wp_enqueue_style('eea-brand', get_stylesheet_directory_uri()
+      . '/elite-esthetics-brand.css');
+ 
+  FONTS — add this to your theme <head> or via a header plugin:
+  <link href="https://fonts.googleapis.com/css2?family=
+    Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;
+    1,300;1,400;1,600&family=Montserrat:wght@300;400;500;
+    600;700&display=swap" rel="stylesheet">
+ 
+  PALM IMAGES — update --palm-dark and --palm-dense in :root
+  after uploading your two palm photos to the Media Library.
+  ================================================================
+*/
+
+/* ================================================================
+   1. CSS CUSTOM PROPERTIES — DESIGN TOKENS
+   All brand values live here. Edit this section to update the
+   entire site in one place.
+   ================================================================ */
+
+:root {
+  /* ── Color Palette ────────────────────────────────────────── */
+
+  /* Greens — primary brand backgrounds */
+  --color-bg-darkest: #0a1510; /* deepest page bg */
+  --color-bg-dark: #0d1f14; /* primary dark bg */
+  --color-bg-mid: #112419; /* alternate dark section */
+  --color-bg-deep: #0f2016; /* CTA / feature section */
+  --color-bg-green-text: #1a2e20; /* dark green used as text on light */
+
+  /* Golds — primary accent */
+  --color-gold: #c9a96e; /* primary gold */
+  --color-gold-light: #e8c98a; /* lighter gold / hover */
+  --color-gold-pale: #f0ddb0; /* very pale gold / backgrounds */
+
+  /* Light backgrounds */
+  --color-cream: #faf7f2; /* primary light section bg */
+  --color-off-white: #f5f0e8; /* slightly warmer white */
+  --color-white: #ffffff;
+
+  /* Text */
+  --color-text: #d4c9b8; /* warm body text on dark */
+  --color-text-muted: rgba(212, 201, 184, 0.58); /* subdued body text */
+  --color-text-light: #4a5a50; /* body text on cream sections */
+  --color-text-lighter: #6a7a6e; /* muted text on cream */
+
+  /* Borders */
+  --color-border-gold: rgba(201, 169, 110, 0.18);
+  --color-border-gold-strong: rgba(201, 169, 110, 0.4);
+  --color-border-cream: rgba(201, 169, 110, 0.2);
+
+  /* ── Typography ───────────────────────────────────────────── */
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Montserrat", Helvetica, sans-serif;
+
+  /* Scale */
+  --text-xs: 9.5px;
+  --text-sm: 11px;
+  --text-base: 13.5px;
+  --text-md: 15px;
+  --text-lg: 17px;
+  --text-xl: 22px;
+  --text-2xl: 28px;
+  --text-3xl: clamp(28px, 3vw, 40px);
+  --text-4xl: clamp(32px, 3.8vw, 52px);
+  --text-5xl: clamp(40px, 5.5vw, 68px);
+
+  /* Letter spacing */
+  --tracking-eyebrow: 4px;
+  --tracking-label: 3.5px;
+  --tracking-button: 2.5px;
+  --tracking-meta: 1.5px;
+
+  /* Line heights */
+  --leading-tight: 1.08;
+  --leading-heading: 1.12;
+  --leading-body: 1.88;
+  --leading-loose: 1.9;
+
+  /* ── Spacing ──────────────────────────────────────────────── */
+
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 64px;
+  --space-2xl: 100px;
+
+  --section-pad-v: 100px;
+  --section-pad-h: 40px;
+  --max-width: 1160px;
+  --max-width-text: 720px;
+  --max-width-narrow: 560px;
+
+  /* ── Palm Image Paths ─────────────────────────────────────── */
+  /* UPDATE THESE after uploading to WordPress Media Library    */
+
+  --palm-dark: url("https://eliteestheticsa.com/wp-content/uploads/2025/05/leaves-1.webp");
+  /* Dark background with palm fronds on left and right sides  */
+  /* Local path example:                                        */
+  /* url('/wp-content/uploads/2026/04/Depositphotos_203212990_L.jpg') */
+
+  --palm-dense: url("https://eliteestheticsa.com/wp-content/uploads/2025/05/leaves-2.webp");
+  /* Dense close-up green palm leaves                          */
+  /* Local path example:                                        */
+  /* url('/wp-content/uploads/2026/04/Palm_Leaves__1_.jpeg')   */
+
+  /* ── Transitions ──────────────────────────────────────────── */
+
+  --transition-fast: all 0.2s ease;
+  --transition-base: all 0.28s ease;
+  --transition-slow: all 0.4s ease;
+}
+
+/* ================================================================
+   2. GOOGLE FONTS IMPORT
+   Also add the <link> tag to your theme <head> for best
+   performance. This @import is a fallback.
+   ================================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+/* ================================================================
+   3. RESET & BASE
+   ================================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: 300;
+  line-height: var(--leading-body);
+  color: var(--color-text);
+  background-color: var(--color-bg-dark);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+a:hover {
+  color: var(--color-gold-light);
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* ================================================================
+   4. TYPOGRAPHY SCALE
+   ================================================================ */
+
+/* ── Serif Display Headings (Cormorant Garamond) ── */
+
+.heading-display {
+  font-family: var(--font-serif);
+  font-size: var(--text-5xl);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.5px;
+  color: var(--color-white);
+}
+
+.heading-1 {
+  font-family: var(--font-serif);
+  font-size: var(--text-4xl);
+  font-weight: 600;
+  line-height: var(--leading-heading);
+  letter-spacing: -0.3px;
+  color: var(--color-white);
+}
+
+.heading-2 {
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  font-weight: 600;
+  line-height: var(--leading-heading);
+  letter-spacing: -0.2px;
+  color: var(--color-white);
+}
+
+.heading-3 {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-white);
+}
+
+.heading-4 {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-white);
+}
+
+/* Italic gold emphasis inside headings */
+.heading-display em,
+.heading-1 em,
+.heading-2 em,
+.heading-3 em,
+.heading-4 em {
+  font-style: italic;
+  color: var(--color-gold-light);
+}
+
+/* Dark variant — for use on cream/light backgrounds */
+.heading-display.on-light,
+.heading-1.on-light,
+.heading-2.on-light,
+.heading-3.on-light,
+.heading-4.on-light {
+  color: var(--color-bg-green-text);
+}
+.heading-display.on-light em,
+.heading-1.on-light em,
+.heading-2.on-light em,
+.heading-3.on-light em,
+.heading-4.on-light em {
+  color: var(--color-gold);
+}
+
+/* ── Body Text ── */
+
+.body-large {
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  font-weight: 300;
+  line-height: var(--leading-loose);
+  color: var(--color-text-muted);
+  letter-spacing: 0.2px;
+}
+
+.body-base {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: 300;
+  line-height: var(--leading-body);
+  color: var(--color-text-muted);
+}
+
+.body-sm {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+/* On light backgrounds */
+.body-large.on-light,
+.body-base.on-light {
+  color: var(--color-text-light);
+}
+.body-sm.on-light {
+  color: var(--color-text-lighter);
+}
+
+/* ── Serif italic pull text ── */
+.text-serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ================================================================
+   5. SECTION EYEBROWS & LABELS
+   The small uppercase tracking labels that introduce sections.
+   Used above every heading on the site.
+   ================================================================ */
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+/* Decorative flanking lines */
+.eyebrow::before,
+.eyebrow::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--color-gold);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+/* Centered variant */
+.eyebrow--center {
+  justify-content: center;
+}
+
+/* On cream/light backgrounds */
+.eyebrow--dark {
+  color: var(--color-gold);
+}
+
+/* Category label (used in FAQ, section counters) */
+.cat-label {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 7px;
+}
+.cat-label::before {
+  content: "";
+  display: block;
+  width: 14px;
+  height: 1px;
+  background: var(--color-gold);
+  opacity: 0.55;
+}
+
+/* Card type label (used inside vmv cards, pillar cards) */
+.type-label {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.type-label::before {
+  content: "";
+  display: block;
+  width: 14px;
+  height: 1px;
+  background: var(--color-gold);
+  opacity: 0.5;
+}
+
+/* ================================================================
+   6. BUTTONS
+   The site uses outlined / transparent buttons exclusively —
+   no filled primary buttons except for gold-fill on hover.
+   ================================================================ */
+
+/* ── Base button reset ── */
+.btn {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: var(--tracking-button);
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 13px 34px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: var(--transition-base);
+  white-space: nowrap;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* ── Gold outline (primary) ── */
+/* Used on dark backgrounds. Transparent → gold fill on hover. */
+.btn--gold {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+.btn--gold:hover {
+  background: var(--color-gold);
+  color: var(--color-bg-darkest);
+}
+
+/* ── White ghost ── */
+/* Secondary button on dark backgrounds */
+.btn--ghost {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.65);
+}
+.btn--ghost:hover {
+  border-color: rgba(255, 255, 255, 0.55);
+  color: var(--color-white);
+}
+
+/* ── Dark (on cream/light backgrounds) ── */
+/* Used when the section background is cream */
+.btn--dark {
+  border-color: var(--color-bg-green-text);
+  color: var(--color-bg-green-text);
+}
+.btn--dark:hover {
+  background: var(--color-bg-green-text);
+  color: var(--color-cream);
+}
+
+/* ── Filled dark ── */
+.btn--dark-filled {
+  background: var(--color-bg-green-text);
+  border-color: var(--color-bg-green-text);
+  color: var(--color-gold);
+}
+.btn--dark-filled:hover {
+  background: #223828;
+  border-color: #223828;
+}
+
+/* ── Size variants ── */
+.btn--sm {
+  font-size: 9px;
+  padding: 10px 24px;
+  letter-spacing: 2px;
+}
+.btn--lg {
+  font-size: 11px;
+  padding: 16px 42px;
+  letter-spacing: 3px;
+}
+
+/* ── Button group ── */
+.btn-group {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.btn-group--center {
+  justify-content: center;
+}
+
+/* ================================================================
+   7. GOLD DECORATIVE LINES
+   Thin gradient lines used as section separators and card accents.
+   ================================================================ */
+
+/* Full-width gradient line */
+.gold-line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-gold) 30%,
+    var(--color-gold-light) 50%,
+    var(--color-gold) 70%,
+    transparent 100%
+  );
+  opacity: 0.45;
+  display: block;
+}
+
+/* Strong variant (used at top of cards / sections) */
+.gold-line--strong {
+  opacity: 0.65;
+}
+
+/* Short decorative bar (used in quotes, labels) */
+.gold-bar {
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--color-gold);
+  opacity: 0.6;
+}
+
+/* Top-edge gold line used on cards and sections:
+   Apply to any element with position: relative */
+.gold-top-edge::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 5%,
+    var(--color-gold) 30%,
+    var(--color-gold-light) 50%,
+    var(--color-gold) 70%,
+    transparent 95%
+  );
+}
+
+/* Left-edge gold bar (used in pull quotes) */
+.gold-left-edge {
+  border-left: 2px solid var(--color-gold);
+  padding-left: 22px;
+}
+
+/* ================================================================
+   8. SECTION LAYOUTS & BACKGROUNDS
+   The site alternates between dark green and cream sections.
+   ================================================================ */
+
+/* ── Shared section wrapper ── */
+.section {
+  position: relative;
+  padding: var(--section-pad-v) var(--section-pad-h);
+  overflow: hidden;
+}
+
+/* ── Inner max-width container ── */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.container--text {
+  max-width: var(--max-width-text);
+  margin: 0 auto;
+}
+
+.container--narrow {
+  max-width: var(--max-width-narrow);
+  margin: 0 auto;
+}
+
+/* ── Background variants ── */
+
+.bg-dark {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text);
+}
+
+.bg-mid {
+  background-color: var(--color-bg-mid);
+  color: var(--color-text);
+}
+
+.bg-deep {
+  background-color: var(--color-bg-deep);
+  color: var(--color-text);
+}
+
+.bg-cream {
+  background-color: var(--color-cream);
+  color: var(--color-text-light);
+}
+
+.bg-white {
+  background-color: var(--color-white);
+  color: var(--color-text-light);
+}
+
+/* ── Hero section ── */
+.section--hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px var(--section-pad-h) 100px;
+}
+
+/* Hero with dark palm photo behind content */
+.hero-bg-palm {
+  position: absolute;
+  inset: 0;
+  background-image: var(--palm-dark);
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.28) saturate(0.55);
+  z-index: 0;
+}
+
+/* Dark overlay to ensure text contrast */
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(10, 21, 14, 0.62) 0%,
+    rgba(13, 31, 20, 0.8) 45%,
+    rgba(10, 18, 12, 0.7) 100%
+  );
+  z-index: 1;
+}
+
+/* Content inside hero sits above bg layers */
+.hero-content {
+  position: relative;
+  z-index: 5;
+}
+
+/* Standard dark-section overlay with full palm background */
+.section-palm-bg {
+  position: absolute;
+  inset: 0;
+  background-image: var(--palm-dark);
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.28) saturate(0.5);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.section-palm-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(11, 22, 15, 0.88) 0%,
+    rgba(10, 20, 13, 0.82) 100%
+  );
+  pointer-events: none;
+}
+
+/* Section header centered block */
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+  position: relative;
+  z-index: 2;
+}
+.section-header .body-base,
+.section-header .body-large {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ================================================================
+   9. PALM LEAF DECORATIONS
+   Decorative palm image overlays positioned at edges of sections.
+   Add the base class to a <div> inside your section, then
+   add a position modifier class.
+   ================================================================ */
+
+/* Base palm decoration */
+.palm-deco {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Dark palm (Image 1 — fronds on black) ── */
+
+/* Right-side decoration — used on dark sections */
+.palm-deco--dark-right {
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  background-image: var(--palm-dark);
+  background-size: cover;
+  background-position: left center;
+  opacity: 0.08;
+}
+
+/* Left-side decoration */
+.palm-deco--dark-left {
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  background-image: var(--palm-dark);
+  background-size: cover;
+  background-position: right center;
+  opacity: 0.08;
+}
+
+/* Full background (very subtle) */
+.palm-deco--dark-full {
+  inset: 0;
+  background-image: var(--palm-dark);
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.3) saturate(0.5);
+  opacity: 0.5;
+}
+
+/* ── Dense palm (Image 2 — close-up green) ── */
+
+/* Top-right corner decoration — used on cream sections */
+.palm-deco--dense-tr {
+  top: 0;
+  right: 0;
+  width: 28%;
+  height: 55%;
+  background-image: var(--palm-dense);
+  background-size: cover;
+  background-position: left bottom;
+  opacity: 0.08;
+}
+
+/* Bottom-left corner decoration */
+.palm-deco--dense-bl {
+  bottom: 0;
+  left: 0;
+  width: 32%;
+  height: 60%;
+  background-image: var(--palm-dense);
+  background-size: cover;
+  background-position: right top;
+  opacity: 0.08;
+}
+
+/* Right-edge peek (used on category headers) */
+.palm-deco--dense-right-peek {
+  top: 0;
+  right: 0;
+  width: 38%;
+  height: 100%;
+  background-image: var(--palm-dense);
+  background-size: cover;
+  background-position: left center;
+  opacity: 0.07;
+}
+
+/* Full background subtle */
+.palm-deco--dense-full {
+  inset: 0;
+  background-image: var(--palm-dense);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.04;
+}
+
+/* ================================================================
+   10. CARDS & BORDERED PANELS
+   ================================================================ */
+
+/* ── Base card ── */
+.card {
+  position: relative;
+  padding: 36px 30px;
+  transition: var(--transition-base);
+}
+
+/* Dark card (on dark sections) */
+.card--dark {
+  background: var(--color-bg-mid);
+  border: 1px solid var(--color-border-gold);
+}
+.card--dark:hover {
+  background: rgba(201, 169, 110, 0.04);
+  border-color: var(--color-border-gold-strong);
+}
+
+/* Glass card (semi-transparent on palm-bg sections) */
+.card--glass {
+  background: rgba(8, 18, 11, 0.55);
+  border: 1px solid var(--color-border-gold);
+  backdrop-filter: blur(4px);
+}
+.card--glass:hover {
+  background: rgba(201, 169, 110, 0.06);
+  border-color: var(--color-border-gold-strong);
+}
+
+/* Light card (on cream sections) */
+.card--light {
+  background: var(--color-white);
+  border: 1px solid rgba(201, 169, 110, 0.18);
+}
+.card--light:hover {
+  border-color: rgba(201, 169, 110, 0.4);
+  box-shadow: 0 4px 20px rgba(201, 169, 110, 0.08);
+}
+
+/* Gold top-edge accent line on cards */
+.card--gold-top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold),
+    var(--color-gold-light),
+    var(--color-gold),
+    transparent
+  );
+}
+
+/* Horizontal gold accent inside card (under headline) */
+.card--gold-accent::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 30px;
+  right: 30px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold),
+    transparent
+  );
+  opacity: 0.4;
+}
+
+/* Large decorative number — used in VMV / feature cards */
+.card-num {
+  font-family: var(--font-serif);
+  font-size: 56px;
+  font-weight: 300;
+  color: rgba(201, 169, 110, 0.07);
+  line-height: 1;
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Bordered panel (full-width inset block) ── */
+.panel {
+  position: relative;
+  border: 1px solid var(--color-border-gold);
+  padding: 44px 40px;
+}
+.panel--gold-top {
+  border-top: none;
+}
+.panel--gold-top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold),
+    var(--color-gold-light),
+    var(--color-gold),
+    transparent
+  );
+}
+
+/* ── Category header block (cream bg, used in FAQ) ── */
+.cat-header {
+  position: relative;
+  background: var(--color-cream);
+  padding: 28px 36px 30px;
+  overflow: hidden;
+}
+.cat-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--color-gold) 0%,
+    var(--color-gold-light) 50%,
+    var(--color-gold) 100%
+  );
+  opacity: 0.65;
+}
+.cat-header-title {
+  font-family: var(--font-serif);
+  font-size: 27px;
+  font-weight: 600;
+  color: var(--color-bg-green-text);
+  line-height: 1.18;
+  position: relative;
+  z-index: 2;
+}
+
+/* ================================================================
+   11. GRID SYSTEMS
+   ================================================================ */
+
+/* ── 2-column ── */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+/* ── 3-column ── */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* ── 4-column ── */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* ── 2-col split (left content, right form/visual) ── */
+.grid-split {
+  display: grid;
+  grid-template-columns: 1fr 390px;
+  gap: 72px;
+  align-items: center;
+}
+
+/* ── Seamless grid (no gap, thin gold gap lines) ── */
+.grid-seamless {
+  display: grid;
+  gap: 1px;
+  background: rgba(201, 169, 110, 0.1);
+  border: 1px solid rgba(201, 169, 110, 0.1);
+}
+.grid-seamless-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid-seamless-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.grid-seamless-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+/* ── Pillars / value grid (2×n inside a panel) ── */
+.grid-pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* ── Stats bar ── */
+.stats-bar {
+  display: grid;
+  gap: 0;
+}
+.stats-bar--5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+.stats-bar--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.stat-item {
+  padding: 20px 12px;
+  text-align: center;
+  border-right: 1px solid rgba(201, 169, 110, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-value {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-gold-light);
+  line-height: 1;
+}
+.stat-stars {
+  color: var(--color-gold);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+.stat-label {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 500;
+  color: rgba(212, 201, 184, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+/* ================================================================
+   12. ACCORDION / FAQ ITEMS
+   ================================================================ */
+
+.faq-list {
+  border: 1px solid var(--color-border-gold);
+  border-top: none;
+}
+
+/* Alternate (slightly deeper) background for even categories */
+.faq-list--alt {
+  background: var(--color-bg-mid);
+  border-color: rgba(201, 169, 110, 0.12);
+}
+
+details.faq-item {
+  border-bottom: 1px solid var(--color-border-gold);
+  background: var(--color-bg-dark);
+  transition: background var(--transition-fast);
+}
+.faq-list--alt details.faq-item {
+  background: var(--color-bg-mid);
+  border-color: rgba(201, 169, 110, 0.1);
+}
+details.faq-item:last-child {
+  border-bottom: none;
+}
+details.faq-item[open] {
+  background: rgba(201, 169, 110, 0.04);
+}
+
+summary.faq-q {
+  list-style: none;
+  padding: 21px 28px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  user-select: none;
+  transition: background var(--transition-fast);
+}
+summary.faq-q::-webkit-details-marker {
+  display: none;
+}
+summary.faq-q:hover {
+  background: rgba(201, 169, 110, 0.04);
+}
+
+.faq-q-text {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--color-white);
+  line-height: 1.5;
+  letter-spacing: 0.1px;
+}
+details[open] .faq-q-text {
+  color: var(--color-gold-light);
+}
+
+/* Plus / minus toggle icon */
+.faq-q-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgba(201, 169, 110, 0.28);
+  position: relative;
+  transition: all var(--transition-base);
+}
+.faq-q-icon::before,
+.faq-q-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--color-gold);
+  transition:
+    transform var(--transition-base),
+    opacity var(--transition-base);
+}
+.faq-q-icon::before {
+  width: 9px;
+  height: 1px;
+  transform: translate(-50%, -50%);
+}
+.faq-q-icon::after {
+  width: 1px;
+  height: 9px;
+  transform: translate(-50%, -50%);
+}
+details[open] .faq-q-icon {
+  border-color: rgba(201, 169, 110, 0.55);
+  background: rgba(201, 169, 110, 0.08);
+}
+details[open] .faq-q-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  opacity: 0;
+}
+
+/* Answer body */
+.faq-answer {
+  padding: 2px 28px 26px;
+}
+
+/* Paragraph inside answer */
+.faq-answer p {
+  font-size: var(--text-base);
+  font-weight: 300;
+  color: var(--color-text-muted);
+  line-height: var(--leading-body);
+  margin-bottom: 11px;
+}
+.faq-answer p:last-child {
+  margin-bottom: 0;
+}
+.faq-answer strong {
+  color: var(--color-text);
+  font-weight: 500;
+}
+.faq-answer a {
+  color: var(--color-gold);
+}
+.faq-answer a:hover {
+  color: var(--color-gold-light);
+}
+
+/* Bullet list inside answer */
+.faq-answer ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 4px;
+}
+.faq-answer ul li {
+  font-size: var(--text-base);
+  font-weight: 300;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  padding: 5px 0 5px 18px;
+  position: relative;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.05);
+}
+.faq-answer ul li:last-child {
+  border-bottom: none;
+}
+.faq-answer ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 6px;
+  height: 1px;
+  background: var(--color-gold);
+  opacity: 0.55;
+}
+.faq-answer ul li strong {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* Numbered steps inside answer */
+.faq-answer ol {
+  list-style: none;
+  counter-reset: steps;
+  padding: 0;
+  margin: 10px 0 4px;
+}
+.faq-answer ol li {
+  counter-increment: steps;
+  font-size: var(--text-base);
+  font-weight: 300;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  padding: 6px 0 6px 30px;
+  position: relative;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.05);
+}
+.faq-answer ol li:last-child {
+  border-bottom: none;
+}
+.faq-answer ol li::before {
+  content: counter(steps);
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 18px;
+  height: 18px;
+  background: rgba(201, 169, 110, 0.12);
+  border: 1px solid rgba(201, 169, 110, 0.28);
+  color: var(--color-gold);
+  font-size: 9.5px;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================================================================
+   13. FORMS
+   All form inputs share a consistent dark/gold aesthetic.
+   ================================================================ */
+
+/* ── Form card wrapper ── */
+.form-card {
+  position: relative;
+  background: rgba(8, 18, 11, 0.86);
+  border: 1px solid var(--color-border-gold);
+  padding: 36px 30px;
+  backdrop-filter: blur(14px);
+}
+.form-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold),
+    var(--color-gold-light),
+    var(--color-gold),
+    transparent
+  );
+}
+
+/* ── Field wrapper ── */
+.form-field {
+  margin-bottom: 11px;
+}
+
+.form-field label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(201, 169, 110, 0.65);
+  margin-bottom: 5px;
+}
+
+/* ── Inputs & selects ── */
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(201, 169, 110, 0.18);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: 300;
+  padding: 10px 13px;
+  outline: none;
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast);
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+.form-field input::placeholder {
+  color: rgba(212, 201, 184, 0.28);
+}
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: rgba(201, 169, 110, 0.5);
+  background: rgba(201, 169, 110, 0.04);
+}
+.form-field select option {
+  background: var(--color-bg-dark);
+  color: var(--color-text);
+}
+.form-field textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ── Two-column field row ── */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* ── Submit button ── */
+.form-submit {
+  width: 100%;
+  margin-top: 6px;
+  background: var(--color-gold);
+  color: var(--color-bg-darkest);
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: var(--tracking-button);
+  text-transform: uppercase;
+  padding: 14px;
+  cursor: pointer;
+  transition: background var(--transition-base);
+  -webkit-appearance: none;
+  appearance: none;
+}
+.form-submit:hover {
+  background: var(--color-gold-light);
+}
+
+/* ── Form note (privacy / reassurance text) ── */
+.form-note {
+  font-size: 10px;
+  color: rgba(212, 201, 184, 0.35);
+  text-align: center;
+  margin-top: 11px;
+  letter-spacing: 0.3px;
+  line-height: 1.5;
+}
+
+/* ================================================================
+   14. TRUST BAR / STATS STRIP
+   Dark strip directly below hero sections.
+   ================================================================ */
+
+.trust-bar {
+  background: rgba(8, 18, 11, 0.97);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.22);
+  position: relative;
+  z-index: 5;
+}
+
+.trust-bar__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.trust-bar__stat {
+  padding: 20px 12px;
+  text-align: center;
+  border-right: 1px solid rgba(201, 169, 110, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.trust-bar__stat:last-child {
+  border-right: none;
+}
+
+.trust-bar__value {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--color-gold-light);
+  line-height: 1;
+}
+.trust-bar__stars {
+  color: var(--color-gold);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+.trust-bar__label {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 500;
+  color: rgba(212, 201, 184, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+/* ================================================================
+   15. PULL QUOTES & BLOCKQUOTES
+   ================================================================ */
+
+/* ── Left-bar pull quote ── */
+.pull-quote {
+  border-left: 2px solid var(--color-gold);
+  padding: 16px 0 16px 22px;
+  margin: 28px 0;
+}
+.pull-quote p {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-white);
+  line-height: 1.65;
+}
+
+/* On cream sections */
+.pull-quote--light p {
+  color: var(--color-bg-green-text);
+}
+
+/* ── Centered director / testimonial quote ── */
+.quote-block {
+  position: relative;
+  padding: 40px 42px;
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  background: rgba(8, 18, 11, 0.5);
+  backdrop-filter: blur(6px);
+  text-align: center;
+}
+.quote-block::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold),
+    var(--color-gold-light),
+    var(--color-gold),
+    transparent
+  );
+}
+
+.quote-block__mark {
+  font-family: var(--font-serif);
+  font-size: 72px;
+  font-weight: 300;
+  color: rgba(201, 169, 110, 0.13);
+  line-height: 0.6;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.quote-block__text {
+  font-family: var(--font-serif);
+  font-size: 21px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-white);
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+
+.quote-block__cite {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+/* ================================================================
+   16. NAVIGATION PILLS / JUMP LINKS
+   Used as category navigation in hero sections.
+   ================================================================ */
+
+.nav-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.nav-pills--center {
+  justify-content: center;
+}
+
+.nav-pill {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: rgba(201, 169, 110, 0.7);
+  border: 1px solid rgba(201, 169, 110, 0.22);
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: var(--transition-base);
+  white-space: nowrap;
+}
+.nav-pill:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  background: rgba(201, 169, 110, 0.05);
+}
+.nav-pill--active {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  background: rgba(201, 169, 110, 0.08);
+}
+
+/* ── Trust micro-row (hero bottom row) ── */
+.trust-micro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+.trust-micro-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.trust-micro-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+.trust-micro-text {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* ── Contact meta row ── */
+.contact-row {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.contact-row a {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition: color var(--transition-fast);
+}
+.contact-row a:hover {
+  color: var(--color-gold);
+}
+.contact-row__dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+/* ================================================================
+   17. UTILITY CLASSES
+   ================================================================ */
+
+/* ── Text alignment ── */
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+
+/* ── Spacing helpers ── */
+.mt-xs {
+  margin-top: var(--space-xs);
+}
+.mt-sm {
+  margin-top: var(--space-sm);
+}
+.mt-md {
+  margin-top: var(--space-md);
+}
+.mt-lg {
+  margin-top: var(--space-lg);
+}
+.mt-xl {
+  margin-top: var(--space-xl);
+}
+.mb-xs {
+  margin-bottom: var(--space-xs);
+}
+.mb-sm {
+  margin-bottom: var(--space-sm);
+}
+.mb-md {
+  margin-bottom: var(--space-md);
+}
+.mb-lg {
+  margin-bottom: var(--space-lg);
+}
+.mb-xl {
+  margin-bottom: var(--space-xl);
+}
+
+/* ── Relative positioning (needed for ::before / ::after layers) ── */
+.relative {
+  position: relative;
+}
+
+/* ── Z-index stacking ── */
+.z-1 {
+  position: relative;
+  z-index: 1;
+}
+.z-2 {
+  position: relative;
+  z-index: 2;
+}
+.z-5 {
+  position: relative;
+  z-index: 5;
+}
+.z-10 {
+  position: relative;
+  z-index: 10;
+}
+
+/* ── Color helpers ── */
+.text-gold {
+  color: var(--color-gold);
+}
+.text-gold-lt {
+  color: var(--color-gold-light);
+}
+.text-white {
+  color: var(--color-white);
+}
+.text-muted {
+  color: var(--color-text-muted);
+}
+.text-dark {
+  color: var(--color-bg-green-text);
+}
+
+/* ── Section header spacing ── */
+.section-header-spacing {
+  margin-bottom: 64px;
+}
+
+/* ── Visually hidden (accessible) ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ================================================================
+   18. MOBILE STICKY CTA BAR
+   Fixed bottom bar shown on screens under 768px.
+   ================================================================ */
+
+.sticky-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: rgba(8, 18, 11, 0.97);
+  border-top: 1px solid rgba(201, 169, 110, 0.28);
+  padding: 10px 16px;
+  padding-bottom: calc(10px + env(safe-area-inset-bottom));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.sticky-cta__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.sticky-cta__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+.sticky-cta__btn:active {
+  opacity: 0.75;
+}
+
+.sticky-cta__btn--call {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.sticky-cta__btn--tour {
+  background: var(--color-gold);
+  color: var(--color-bg-darkest);
+  border: 1px solid var(--color-gold);
+}
+
+/* ================================================================
+   19. RESPONSIVE BREAKPOINTS
+   ================================================================ */
+
+/* ── Tablet (max 960px) ── */
+@media (max-width: 960px) {
+  :root {
+    --section-pad-v: 70px;
+    --section-pad-h: 28px;
+  }
+
+  .grid-split {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .grid-4 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-pillars {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-seamless-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-bar__inner {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .section--hero {
+    padding: 100px var(--section-pad-h) 80px;
+    text-align: center;
+  }
+
+  /* Center align items that flow left by default in hero */
+  .section--hero .eyebrow,
+  .section--hero .trust-micro,
+  .section--hero .btn-group {
+    justify-content: center;
+  }
+
+  .section-header-spacing {
+    margin-bottom: 44px;
+  }
+}
+
+/* ── Mobile (max 768px) ── */
+@media (max-width: 768px) {
+  :root {
+    --section-pad-v: 60px;
+    --section-pad-h: 20px;
+  }
+
+  .sticky-cta {
+    display: block;
+  }
+
+  body {
+    padding-bottom: 74px;
+  }
+
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-bar__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .trust-bar__stat:nth-child(5) {
+    grid-column: 1 / -1;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .cat-header {
+    padding: 20px 18px 22px;
+  }
+
+  summary.faq-q {
+    padding: 18px 20px;
+  }
+
+  .faq-answer {
+    padding: 0 20px 22px;
+  }
+
+  .panel {
+    padding: 32px 22px;
+  }
+
+  .quote-block {
+    padding: 30px 24px;
+  }
+}
+
+/* ── Small mobile (max 480px) ── */
+@media (max-width: 480px) {
+  .nav-pills .nav-pill {
+    font-size: 8.5px;
+    padding: 7px 12px;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    font-size: 9.5px;
+  }
+
+  .trust-bar__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-bar__stat {
+    border-right: none;
+    border-bottom: 1px solid rgba(201, 169, 110, 0.08);
+  }
+  .trust-bar__stat:last-child {
+    border-bottom: none;
+  }
+}
+
+/* ================================================================
+   20. ANIMATIONS & TRANSITIONS
+   ================================================================ */
+
+/* ── Fade up on page load (hero content) ── */
+@keyframes eea-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply to hero content children with staggered delays */
+.animate-fade-up {
+  animation: eea-fade-up 0.8s ease both;
+}
+.animate-delay-1 {
+  animation-delay: 0.05s;
+}
+.animate-delay-2 {
+  animation-delay: 0.2s;
+}
+.animate-delay-3 {
+  animation-delay: 0.35s;
+}
+.animate-delay-4 {
+  animation-delay: 0.48s;
+}
+.animate-delay-5 {
+  animation-delay: 0.6s;
+}
+.animate-delay-6 {
+  animation-delay: 0.72s;
+}
+
+/* ── Subtle hover lift for cards ── */
+.hover-lift {
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+}
+
+/* ── Hover border brighten for cards ── */
+.hover-border {
+  transition:
+    border-color var(--transition-base),
+    background var(--transition-base);
+}
+.hover-border:hover {
+  border-color: var(--color-border-gold-strong) !important;
+}
+
+/* ================================================================
+   END OF ELITE ESTHETICS ACADEMY BRAND STYLESHEET
+   ================================================================
+   Questions? Contact info@eliteestheticsa.com
+   (435) 485-7546 · 66 E Wadsworth Park Dr, Suite 140
+   Draper, Utah 84020
+   ================================================================ */
