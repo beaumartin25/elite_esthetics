@@ -22,195 +22,11 @@
     <!-- Brand Stylesheet -->
     <link rel="stylesheet" href="assets/css/elite-esthetics-brand.css" />
 
+    <!-- Page-specific Styles -->
+    <link rel="stylesheet" href="assets/css/elite-esthetics-pages.css" />
+
     <!-- Web Components (nav + footer) -->
     <script src="assets/js/components.js" defer></script>
-
-    <style>
-      /* ─────────────────────────────────────────────────────────────
-       PAGE-SPECIFIC STYLES — ABOUT US
-       ───────────────────────────────────────────────────────────── */
-
-      /* ── STORY SECTION ── */
-      .story-layout > div:first-child p.body-base {
-        font-size: 16px;
-        line-height: 1.95;
-      }
-      .story-layout {
-        display: grid;
-        grid-template-columns: 1fr 340px;
-        gap: 80px;
-        align-items: start;
-      }
-      .founder-photo-card {
-        position: sticky;
-        top: 96px;
-      }
-      .founder-photo-card__img {
-        width: 100%;
-        aspect-ratio: 3 / 4;
-        object-fit: cover;
-        object-position: center top;
-        display: block;
-        filter: brightness(0.92) saturate(0.88);
-        transition: transform 0.55s ease, filter 0.4s ease;
-      }
-      .founder-photo-card:hover .founder-photo-card__img {
-        transform: scale(1.02);
-        filter: brightness(0.98) saturate(1);
-      }
-      .founder-photo-card__footer {
-        padding: 16px 20px 18px;
-        background: var(--color-white);
-        border: 1px solid rgba(201, 169, 110, 0.18);
-        border-top: none;
-      }
-      .founder-photo-card__name {
-        font-family: var(--font-serif);
-        font-size: 19px;
-        font-weight: 600;
-        color: var(--color-bg-green-text);
-        line-height: 1.2;
-        margin-bottom: 3px;
-      }
-      .founder-photo-card__title {
-        font-family: var(--font-sans);
-        font-size: 9px;
-        font-weight: 600;
-        letter-spacing: 2.5px;
-        text-transform: uppercase;
-        color: var(--color-gold);
-      }
-      .leadership-photo {
-        margin-top: 56px;
-        overflow: hidden;
-      }
-      .leadership-photo__img {
-        width: 100%;
-        aspect-ratio: 16 / 7;
-        object-fit: cover;
-        object-position: center 45%;
-        display: block;
-        filter: brightness(0.92) saturate(0.88);
-        transition: transform 0.55s ease, filter 0.4s ease;
-      }
-      .leadership-photo:hover .leadership-photo__img {
-        transform: scale(1.02);
-        filter: brightness(0.98) saturate(1);
-      }
-      .leadership-photo__caption {
-        padding: 14px 20px 16px;
-        background: var(--color-white);
-        border: 1px solid rgba(201, 169, 110, 0.18);
-        border-top: none;
-        display: flex;
-        align-items: center;
-        gap: 14px;
-      }
-      .leadership-photo__caption-bar {
-        width: 22px;
-        height: 1px;
-        background: var(--color-gold);
-        opacity: 0.6;
-        flex-shrink: 0;
-      }
-      .leadership-photo__caption-text {
-        font-family: var(--font-sans);
-        font-size: 9px;
-        font-weight: 600;
-        letter-spacing: 2.5px;
-        text-transform: uppercase;
-        color: var(--color-gold);
-      }
-
-      /* ── ACCREDITATION ── */
-      .accred-panel {
-        position: relative;
-        border: 1px solid var(--color-border-gold);
-        padding: 44px 48px;
-        background: rgba(10, 21, 14, 0.5);
-        backdrop-filter: blur(4px);
-      }
-      .accred-panel::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          var(--color-gold),
-          var(--color-gold-light),
-          var(--color-gold),
-          transparent
-        );
-      }
-      .accred-tag {
-        font-family: var(--font-sans);
-        font-size: 9px;
-        font-weight: 700;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        color: rgba(201, 169, 110, 0.5);
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 14px;
-      }
-      .accred-tag::before {
-        content: "";
-        display: block;
-        width: 14px;
-        height: 1px;
-        background: var(--color-gold);
-        opacity: 0.4;
-        flex-shrink: 0;
-      }
-      .accred-heading {
-        font-family: var(--font-serif);
-        font-size: 22px;
-        font-weight: 600;
-        color: var(--color-white);
-        margin-bottom: 16px;
-        line-height: 1.2;
-      }
-      .accred-body {
-        font-family: var(--font-sans);
-        font-size: var(--text-sm);
-        font-weight: 300;
-        color: rgba(212, 201, 184, 0.48);
-        line-height: 1.88;
-        max-width: 780px;
-      }
-      .accred-body strong {
-        color: rgba(212, 201, 184, 0.65);
-        font-weight: 500;
-      }
-
-      /* ── RESPONSIVE ── */
-      @media (max-width: 960px) {
-        .story-layout {
-          grid-template-columns: 1fr;
-          gap: 48px;
-        }
-        .founder-photo-card {
-          position: static;
-          max-width: 380px;
-        }
-        .leadership-photo__img {
-          aspect-ratio: 16 / 9;
-        }
-        .accred-panel {
-          padding: 36px 30px;
-        }
-      }
-      @media (max-width: 480px) {
-        .accred-panel {
-          padding: 28px 20px;
-        }
-      }
-    </style>
   </head>
 
   <body>
@@ -228,17 +44,11 @@
           Elite Esthetics Academy
         </div>
 
-        <h1
-          class="heading-1 animate-fade-up animate-delay-2"
-          style="margin-bottom: 18px"
-        >
+        <h1 class="heading-1 animate-fade-up animate-delay-2">
           Our <em>Story</em>
         </h1>
 
-        <p
-          class="body-large animate-fade-up animate-delay-3"
-          style="max-width: 540px; margin: 0 auto 36px"
-        >
+        <p class="body-large animate-fade-up animate-delay-3">
           Founded in Draper, Utah on a simple belief: students deserve an
           education that prepares them for a career &mdash; not just a license.
         </p>
@@ -259,26 +69,22 @@
     <!-- ═══════════════════════════════════════════════════════════════
      SECTION 1 — OUR STORY
      ═══════════════════════════════════════════════════════════════ -->
-    <section
-      class="section bg-cream"
-      id="story"
-      style="position: relative; overflow: hidden"
-    >
+    <section class="section bg-cream" id="story">
       <div class="palm-deco palm-deco--dense-tr" aria-hidden="true"></div>
       <div class="palm-deco palm-deco--dense-bl" aria-hidden="true"></div>
 
-      <div class="container" style="position: relative; z-index: 2">
+      <div class="container z-2">
         <div class="story-layout">
 
         <!-- Story Text -->
         <div>
           <div class="eyebrow eyebrow--dark">Our Story</div>
-          <h2 class="heading-2 on-light" style="margin-bottom: 28px">
+          <h2 class="heading-2 on-light">
             Why Troy Martin Founded<br /><em>Elite Esthetics Academy</em>
           </h2>
 
           <!-- Founder Pull Quote -->
-          <div class="pull-quote pull-quote--light" style="margin-bottom: 32px">
+          <div class="pull-quote pull-quote--light">
             <p>
               &ldquo;I started Elite Esthetics Academy because I saw talented
               students graduating with licenses but still feeling unprepared
@@ -288,22 +94,11 @@
               ready to build meaningful, successful careers &mdash; not just
               pass a test.&rdquo;
             </p>
-            <div
-              style="display: flex; align-items: center; gap: 12px; margin-top: 16px"
-            >
-              <div
-                style="width: 22px; height: 1px; background: var(--color-gold); opacity: 0.6; flex-shrink: 0"
-                aria-hidden="true"
-              ></div>
+            <div class="testimonial-meta">
+              <div class="testimonial-bar" aria-hidden="true"></div>
               <div>
-                <div
-                  style="font-family: var(--font-sans); font-size: 10px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--color-gold)"
-                >
-                  Troy Martin
-                </div>
-                <div
-                  style="font-family: var(--font-sans); font-size: 10px; font-weight: 300; color: var(--color-text-lighter); letter-spacing: 0.3px"
-                >
+                <div class="testimonial-name">Troy Martin</div>
+                <div class="testimonial-program">
                   Founder &amp; CEO, Elite Esthetics Academy
                 </div>
               </div>
@@ -311,20 +106,17 @@
           </div>
 
           <!-- Vision Paragraphs -->
-          <h3
-            class="heading-4 on-light"
-            style="margin-bottom: 14px; font-size: 18px"
-          >
+          <h3 class="heading-4 on-light">
             Our Vision for Esthetics Education
           </h3>
-          <p class="body-base on-light" style="margin-bottom: 16px">
+          <p class="body-base on-light">
             The ideal esthetics school does more than help students earn a
             license &mdash; it prepares them for a successful, long-term
             career. It combines expert instruction, hands-on experience,
             mentorship, and real-world business education in an environment
             where students feel supported, challenged, and inspired to grow.
           </p>
-          <p class="body-base on-light" style="margin-bottom: 32px">
+          <p class="body-base on-light">
             At Elite Esthetics Academy, we&rsquo;ve built our program around
             that vision. We believe students learn best through hands-on
             practice, personalized guidance, and exposure to the latest
@@ -335,13 +127,10 @@
           </p>
 
           <!-- Today Paragraphs -->
-          <h3
-            class="heading-4 on-light"
-            style="margin-bottom: 14px; font-size: 18px"
-          >
+          <h3 class="heading-4 on-light">
             Elite Esthetics Academy Today
           </h3>
-          <p class="body-base on-light" style="margin-bottom: 16px">
+          <p class="body-base on-light">
             Today, Elite Esthetics Academy is more than a school &mdash;
             it&rsquo;s a community dedicated to developing the next
             generation of confident, skilled estheticians. What we&rsquo;re
@@ -349,7 +138,7 @@
             leave with not only a license, but the knowledge, confidence, and
             passion to build meaningful careers in the beauty industry.
           </p>
-          <p class="body-base on-light" style="margin-bottom: 36px">
+          <p class="body-base on-light">
             We&rsquo;ve created an environment where education is personal,
             hands-on, and focused on real-world success. When students walk
             through our doors, we want them to feel welcomed, supported, and
@@ -360,10 +149,7 @@
 
           <div class="btn-group">
             <a href="team.html" class="btn btn--dark">Meet Our Team</a>
-            <a
-              href="book-a-tour.html"
-              class="btn btn--ghost"
-              style="border-color: rgba(26,46,32,0.3); color: var(--color-text-light)"
+            <a href="book-a-tour.html" class="btn btn--ghost-light"
               >Book a Free Tour</a
             >
           </div>
@@ -407,22 +193,18 @@
     <!-- ═══════════════════════════════════════════════════════════════
      SECTION 2 — MISSION, VISION & WELCOME
      ═══════════════════════════════════════════════════════════════ -->
-    <section
-      class="section bg-dark"
-      id="mission"
-      style="position: relative; overflow: hidden"
-    >
+    <section class="section bg-dark" id="mission">
       <div class="palm-deco palm-deco--dark-left" aria-hidden="true"></div>
       <div class="palm-deco palm-deco--dark-right" aria-hidden="true"></div>
 
-      <div class="container" style="position: relative; z-index: 2">
+      <div class="container z-2">
         <!-- Section Header -->
         <div class="section-header">
           <div class="eyebrow eyebrow--center">Mission &amp; Vision</div>
-          <h2 class="heading-2" style="margin-bottom: 14px">
+          <h2 class="heading-2">
             What We <em>Stand For</em>
           </h2>
-          <p class="body-large" style="max-width: 520px; margin: 0 auto">
+          <p class="body-large">
             Every decision at Elite Esthetics Academy is guided by a clear
             purpose &mdash; to empower the next generation of estheticians
             with the skills and confidence to lead.
@@ -430,7 +212,7 @@
         </div>
 
         <!-- Welcome Message Quote Block -->
-        <div class="quote-block" style="margin-bottom: 40px">
+        <div class="quote-block">
           <span class="quote-block__mark" aria-hidden="true">&ldquo;</span>
           <p class="quote-block__text">
             Welcome to Elite Esthetics Academy, where your journey to becoming
@@ -446,7 +228,7 @@
         </div>
 
         <!-- Mission + Vision Cards -->
-        <div class="grid-2" style="align-items: stretch">
+        <div class="grid-2 grid-2--stretch">
           <!-- Mission -->
           <div class="mvv-card">
             <div class="mvv-card__type">Our Mission</div>
@@ -481,20 +263,16 @@
     <!-- ═══════════════════════════════════════════════════════════════
      SECTION 3 — CORE VALUES
      ═══════════════════════════════════════════════════════════════ -->
-    <section
-      class="section bg-mid"
-      id="values"
-      style="position: relative; overflow: hidden"
-    >
+    <section class="section bg-mid" id="values">
       <div class="palm-deco palm-deco--dark-right" aria-hidden="true"></div>
 
-      <div class="container" style="position: relative; z-index: 2">
+      <div class="container z-2">
         <div class="section-header">
           <div class="eyebrow eyebrow--center">Core Values</div>
-          <h2 class="heading-2" style="margin-bottom: 14px">
+          <h2 class="heading-2">
             The Seven Principles We <em>Live By</em>
           </h2>
-          <p class="body-large" style="max-width: 500px; margin: 0 auto">
+          <p class="body-large">
             These aren&rsquo;t words on a wall &mdash; they&rsquo;re the
             standards we hold ourselves to every single day.
           </p>
@@ -584,21 +362,13 @@
     <!-- ═══════════════════════════════════════════════════════════════
      SECTION 4 — ACCREDITATION & LICENSING
      ═══════════════════════════════════════════════════════════════ -->
-    <section
-      class="section"
-      id="accreditation"
-      style="
-        background-color: var(--color-bg-darkest);
-        position: relative;
-        overflow: hidden;
-      "
-    >
+    <section class="section" id="accreditation">
       <div class="palm-deco palm-deco--dark-left" aria-hidden="true"></div>
 
-      <div class="container" style="position: relative; z-index: 2">
-        <div class="section-header" style="margin-bottom: 44px">
+      <div class="container z-2">
+        <div class="section-header">
           <div class="eyebrow eyebrow--center">Accreditation &amp; Licensing</div>
-          <h2 class="heading-2" style="margin-bottom: 0">
+          <h2 class="heading-2">
             Oversight &amp; <em>Compliance</em>
           </h2>
         </div>
@@ -628,33 +398,22 @@
      FINAL CTA
      ═══════════════════════════════════════════════════════════════ -->
     <section class="cta-section bg-deep">
-      <div
-        class="section-palm-bg"
-        style="opacity: 0.3"
-        aria-hidden="true"
-      ></div>
+      <div class="section-palm-bg section-palm-bg--dim" aria-hidden="true"></div>
       <div class="section-palm-overlay" aria-hidden="true"></div>
 
-      <div
-        class="container"
-        style="position: relative; z-index: 2; text-align: center"
-      >
-        <span
-          class="gold-bar"
-          style="margin: 0 auto 22px"
-          aria-hidden="true"
-        ></span>
+      <div class="container z-2">
+        <span class="gold-bar gold-bar--centered" aria-hidden="true"></span>
         <div class="eyebrow eyebrow--center">Take the Next Step</div>
-        <h2 class="heading-1" style="margin-bottom: 18px">
+        <h2 class="heading-1">
           Ready to Start Your <em>Career in Esthetics?</em>
         </h2>
-        <p class="body-large" style="max-width: 520px; margin: 0 auto 36px">
+        <p class="body-large">
           Come see our facility, meet the instructors, and get your questions
           answered &mdash; no pressure, no commitment. Tours are free and
           available most days.
         </p>
 
-        <div class="btn-group btn-group--center" style="margin-bottom: 40px">
+        <div class="btn-group btn-group--center">
           <a href="book-a-tour.html" class="btn btn--gold btn--lg"
             >Book a Free Tour</a
           >
@@ -663,7 +422,7 @@
           >
         </div>
 
-        <div class="contact-row" style="justify-content: center">
+        <div class="contact-row contact-row--center">
           <a href="tel:4354857546" class="contact-row__link">
             <div class="contact-row__dot" aria-hidden="true"></div>
             (435) 485-7546
@@ -672,17 +431,7 @@
             <div class="contact-row__dot" aria-hidden="true"></div>
             info@eliteestheticsa.com
           </a>
-          <span
-            style="
-              display: flex;
-              align-items: center;
-              gap: 7px;
-              font-family: var(--font-sans);
-              font-size: var(--text-sm);
-              font-weight: 300;
-              color: var(--color-text-muted);
-            "
-          >
+          <span class="contact-address">
             <div class="contact-row__dot" aria-hidden="true"></div>
             66 E Wadsworth Park Dr, Suite 140 &middot; Draper, UT 84020
           </span>

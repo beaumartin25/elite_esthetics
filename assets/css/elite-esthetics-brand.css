@@ -469,6 +469,16 @@ ol {
   color: var(--color-cream);
 }
 
+/* ── Ghost light (secondary on cream/light backgrounds) ── */
+.btn--ghost-light {
+  border-color: rgba(26, 46, 32, 0.3);
+  color: var(--color-text-light);
+}
+.btn--ghost-light:hover {
+  border-color: var(--color-bg-green-text);
+  color: var(--color-bg-green-text);
+}
+
 /* ── Filled dark ── */
 .btn--dark-filled {
   background: var(--color-bg-green-text);
@@ -538,6 +548,11 @@ ol {
   opacity: 0.6;
 }
 
+/* Centered variant — used at the top of CTA sections */
+.gold-bar--centered {
+  margin: 0 auto 22px;
+}
+
 /* Top-edge gold line used on cards and sections:
    Apply to any element with position: relative */
 .gold-top-edge::before {
@@ -594,6 +609,11 @@ ol {
 
 /* ── Background variants ── */
 
+.bg-darkest {
+  background-color: var(--color-bg-darkest);
+  color: var(--color-text);
+}
+
 .bg-dark {
   background-color: var(--color-bg-dark);
   color: var(--color-text);
@@ -626,6 +646,7 @@ ol {
   align-items: center;
   justify-content: center;
   padding: 120px var(--section-pad-h) 100px;
+  background-color: var(--color-bg-darkest);
 }
 
 /* Hero with dark palm photo behind content */
@@ -659,6 +680,11 @@ ol {
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.75), 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
+/* Max-width wrapper for hero copy column */
+.hero-inner {
+  max-width: 680px;
+}
+
 .hero-content .body-large,
 .hero-content .body-base {
   color: rgba(212, 201, 184, 0.9);
@@ -687,6 +713,11 @@ ol {
     rgba(10, 20, 13, 0.82) 100%
   );
   pointer-events: none;
+}
+
+/* Dimmed palm bg — used in CTA sections for a softer overlay */
+.section-palm-bg--dim {
+  opacity: 0.3;
 }
 
 /* Section header centered block */
@@ -957,6 +988,9 @@ ol {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 28px;
+}
+.grid-2--stretch {
+  align-items: stretch;
 }
 
 /* ── 3-column ── */
@@ -1416,6 +1450,7 @@ details[open] .faq-q-icon::after {
   font-size: 15px;
   letter-spacing: 1.5px;
   line-height: 1;
+  margin-bottom: -3px;
 }
 .trust-bar__label {
   font-family: var(--font-sans);
@@ -1604,6 +1639,50 @@ details[open] .faq-q-icon::after {
   background: var(--color-gold);
   opacity: 0.5;
   flex-shrink: 0;
+}
+.contact-row--center {
+  justify-content: center;
+}
+/* Address span — mirrors .contact-row a styling for non-link items */
+.contact-address {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 300;
+  color: var(--color-text-muted);
+}
+
+/* ── Attribution meta (testimonial bylines, pull quote credits) ── */
+.testimonial-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.testimonial-bar {
+  width: 22px;
+  height: 1px;
+  background: var(--color-gold);
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+.testimonial-name {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  line-height: 1.3;
+}
+.testimonial-program {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  letter-spacing: 0.3px;
+  line-height: 1.3;
 }
 
 /* ================================================================
@@ -1842,6 +1921,65 @@ details[open] .faq-q-icon::after {
   color: var(--color-gold);
 }
 
+/* ── Dropdown ── */
+.site-nav__dropdown {
+  position: relative;
+  height: 68px;
+  display: flex;
+  align-items: center;
+}
+.site-nav__dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.site-nav__chevron {
+  width: 8px;
+  height: 5px;
+  flex-shrink: 0;
+  opacity: 0.65;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+.site-nav__dropdown:hover .site-nav__chevron,
+.site-nav__dropdown:focus-within .site-nav__chevron {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+.site-nav__submenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 168px;
+  list-style: none;
+  margin: 0;
+  padding: 6px 0 8px;
+  background: rgba(10, 21, 14, 0.97);
+  border: 1px solid var(--color-border-gold);
+  border-top: 2px solid var(--color-gold);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--transition-fast), visibility var(--transition-fast);
+}
+.site-nav__dropdown:hover .site-nav__submenu,
+.site-nav__dropdown:focus-within .site-nav__submenu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.site-nav__submenu a {
+  display: block;
+  padding: 10px 20px;
+  white-space: nowrap;
+}
+/* Highlight "About" parent when on any About sub-page */
+.site-nav__dropdown:has([aria-current="page"]) .site-nav__dropdown-toggle {
+  color: var(--color-gold);
+}
+
 /* ================================================================
    22. PAGE HERO (interior page banner)
    ================================================================ */
@@ -1861,6 +1999,13 @@ details[open] .faq-q-icon::after {
   text-align: center;
   width: 100%;
 }
+.page-hero .heading-1 {
+  margin-bottom: 18px;
+}
+.page-hero .body-large {
+  max-width: 560px;
+  margin: 0 auto 36px;
+}
 
 /* ================================================================
    23. CTA SECTION
@@ -1871,6 +2016,16 @@ details[open] .faq-q-icon::after {
   overflow: hidden;
   padding: 110px var(--section-pad-h);
   text-align: center;
+}
+.cta-section .heading-1 {
+  margin-bottom: 18px;
+}
+.cta-section .body-large {
+  max-width: 520px;
+  margin: 0 auto 36px;
+}
+.cta-section .btn-group--center {
+  margin-bottom: 40px;
 }
 
 /* ================================================================

@@ -27,7 +27,18 @@ class SiteNav extends HTMLElement {
 
           <ul class="site-nav__links" role="list">
             <li><a href="${b}programs.html">Programs</a></li>
-            <li><a href="${b}about.html">About</a></li>
+            <li class="site-nav__dropdown">
+              <a href="${b}about.html" class="site-nav__dropdown-toggle">
+                About
+                <svg class="site-nav__chevron" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                  <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <ul class="site-nav__submenu" role="list">
+                <li><a href="${b}about.html">Our Story</a></li>
+                <li><a href="${b}team.html">Meet the Team</a></li>
+              </ul>
+            </li>
             <li><a href="${b}student-clinic.html">Student Clinic</a></li>
             <li><a href="${b}financial-aid.html">Financial Aid</a></li>
             <li><a href="${b}faq.html">FAQ</a></li>

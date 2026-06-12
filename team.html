@@ -22,74 +22,11 @@
     <!-- Brand Stylesheet -->
     <link rel="stylesheet" href="assets/css/elite-esthetics-brand.css" />
 
+    <!-- Page-specific Styles -->
+    <link rel="stylesheet" href="assets/css/elite-esthetics-pages.css" />
+
     <!-- Web Components (nav + footer) -->
     <script src="assets/js/components.js" defer></script>
-
-    <style>
-      /* ── STATS BAR (light variant, team page only) ── */
-      .team-stats {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1px;
-        background: rgba(201, 169, 110, 0.15);
-        border: 1px solid rgba(201, 169, 110, 0.15);
-        margin-bottom: 72px;
-      }
-      .team-stat {
-        background: var(--color-white);
-        padding: 32px 24px;
-        text-align: center;
-      }
-      .team-stat__num {
-        font-family: var(--font-serif);
-        font-size: 42px;
-        font-weight: 300;
-        color: var(--color-bg-green-text);
-        line-height: 1;
-        margin-bottom: 6px;
-      }
-      .team-stat__num sup {
-        font-size: 22px;
-        vertical-align: super;
-      }
-      .team-stat__label {
-        font-family: var(--font-sans);
-        font-size: 9px;
-        font-weight: 600;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        color: var(--color-gold);
-      }
-
-      /* ── SECTION DIVIDER LABEL ── */
-      .team-section-label {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        margin-bottom: 28px;
-      }
-      .team-section-label::after {
-        content: "";
-        flex: 1;
-        height: 1px;
-        background: rgba(201, 169, 110, 0.25);
-      }
-
-      /* ── TEAM GRID (32px gap vs grid-3's 28px) ── */
-      .team-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 32px;
-      }
-
-      @media (max-width: 1100px) {
-        .team-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-        .team-stats { grid-template-columns: repeat(2, 1fr); }
-      }
-      @media (max-width: 640px) {
-        .team-grid { grid-template-columns: 1fr; gap: 20px; }
-      }
-    </style>
   </head>
 
   <body>
@@ -107,17 +44,11 @@
           Elite Esthetics Academy
         </div>
 
-        <h1
-          class="heading-1 animate-fade-up animate-delay-2"
-          style="margin-bottom: 18px"
-        >
+        <h1 class="heading-1 animate-fade-up animate-delay-2">
           Meet Our <em>Team</em>
         </h1>
 
-        <p
-          class="body-large animate-fade-up animate-delay-3"
-          style="max-width: 560px; margin: 0 auto 36px"
-        >
+        <p class="body-large animate-fade-up animate-delay-3">
           The educators and leaders behind EEA bring real-world expertise,
           genuine mentorship, and a shared belief that students deserve more
           than a license.
@@ -138,26 +69,19 @@
     <!-- ═══════════════════════════════════════════════════════════════
      SECTION 1 — INTRO + STATS + TEAM GRID
      ═══════════════════════════════════════════════════════════════ -->
-    <section
-      class="section bg-cream"
-      id="leadership"
-      style="position: relative; overflow: hidden"
-    >
+    <section class="section bg-cream" id="leadership">
       <div class="palm-deco palm-deco--dense-tr" aria-hidden="true"></div>
       <div class="palm-deco palm-deco--dense-bl" aria-hidden="true"></div>
 
-      <div class="container" style="position: relative; z-index: 2">
+      <div class="container z-2">
 
         <!-- Section header -->
         <div class="section-header">
           <div class="eyebrow eyebrow--center eyebrow--dark">Our People</div>
-          <h2 class="heading-2 on-light" style="margin-bottom: 16px">
+          <h2 class="heading-2 on-light">
             Educators Who <em>Actually Practice</em>
           </h2>
-          <p
-            class="body-large on-light"
-            style="max-width: 580px; margin: 0 auto"
-          >
+          <p class="body-large on-light">
             Every instructor at Elite Esthetics Academy is an active industry
             professional &mdash; not just a classroom teacher. You learn from
             people who are doing the work, right now.
@@ -186,12 +110,12 @@
 
         <!-- ── LEADERSHIP ROW ── -->
         <div class="team-section-label">
-          <div class="eyebrow eyebrow--dark" style="margin-bottom: 0">
+          <div class="eyebrow eyebrow--dark">
             School Leadership
           </div>
         </div>
 
-        <div class="team-grid" style="margin-bottom: 56px">
+        <div class="team-grid">
 
           <!-- ROBERTA -->
           <article class="team-card">
@@ -334,7 +258,7 @@
 
         <!-- ── INSTRUCTORS + OWNERSHIP ROW ── -->
         <div class="team-section-label" id="instructors">
-          <div class="eyebrow eyebrow--dark" style="margin-bottom: 0">
+          <div class="eyebrow eyebrow--dark">
             Instructors &amp; Ownership
           </div>
         </div>
@@ -478,39 +402,22 @@
      FINAL CTA
      ═══════════════════════════════════════════════════════════════ -->
     <section class="cta-section bg-deep">
-      <div
-        class="section-palm-bg"
-        style="opacity: 0.3"
-        aria-hidden="true"
-      ></div>
+      <div class="section-palm-bg section-palm-bg--dim" aria-hidden="true"></div>
       <div class="section-palm-overlay" aria-hidden="true"></div>
 
-      <div
-        class="container"
-        style="position: relative; z-index: 2; text-align: center"
-      >
-        <span
-          class="gold-bar"
-          style="margin: 0 auto 22px"
-          aria-hidden="true"
-        ></span>
+      <div class="container z-2">
+        <span class="gold-bar gold-bar--centered" aria-hidden="true"></span>
         <div class="eyebrow eyebrow--center">Come Meet Us</div>
-        <h2 class="heading-1" style="margin-bottom: 18px">
+        <h2 class="heading-1">
           See the Team <em>In Person</em>
         </h2>
-        <p
-          class="body-large"
-          style="max-width: 520px; margin: 0 auto 36px"
-        >
+        <p class="body-large">
           The best way to know if EEA is the right fit is to walk through the
           door. Schedule a free tour and meet your future instructors
           face-to-face &mdash; no pressure, no commitment.
         </p>
 
-        <div
-          class="btn-group btn-group--center"
-          style="margin-bottom: 40px"
-        >
+        <div class="btn-group btn-group--center">
           <a href="book-a-tour.html" class="btn btn--gold btn--lg"
             >Book a Free Tour</a
           >
@@ -519,7 +426,7 @@
           >
         </div>
 
-        <div class="contact-row" style="justify-content: center">
+        <div class="contact-row contact-row--center">
           <a href="tel:4354857546" class="contact-row__link">
             <div class="contact-row__dot" aria-hidden="true"></div>
             (435) 485-7546
@@ -528,17 +435,7 @@
             <div class="contact-row__dot" aria-hidden="true"></div>
             info@eliteestheticsa.com
           </a>
-          <span
-            style="
-              display: flex;
-              align-items: center;
-              gap: 7px;
-              font-family: var(--font-sans);
-              font-size: var(--text-sm);
-              font-weight: 300;
-              color: var(--color-text-muted);
-            "
-          >
+          <span class="contact-address">
             <div class="contact-row__dot" aria-hidden="true"></div>
             66 E Wadsworth Park Dr, Suite 140 &middot; Draper, UT 84020
           </span>
