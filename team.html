@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Meet the instructors and leadership team at Elite Esthetics Academy in Draper, Utah — active industry professionals dedicated to giving students the education they deserve."
+    />
+    <meta
+      name="keywords"
+      content="Elite Esthetics Academy team, esthetics instructors Draper Utah, EEA staff, esthetics school faculty Utah"
+    />
+    <title>Our Team &mdash; Elite Esthetics Academy | Draper, Utah</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Brand Stylesheet -->
+    <link rel="stylesheet" href="assets/css/elite-esthetics-brand.css" />
+
+    <!-- Web Components (nav + footer) -->
+    <script src="assets/js/components.js" defer></script>
+
+    <style>
+      /* ── STATS BAR (light variant, team page only) ── */
+      .team-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        background: rgba(201, 169, 110, 0.15);
+        border: 1px solid rgba(201, 169, 110, 0.15);
+        margin-bottom: 72px;
+      }
+      .team-stat {
+        background: var(--color-white);
+        padding: 32px 24px;
+        text-align: center;
+      }
+      .team-stat__num {
+        font-family: var(--font-serif);
+        font-size: 42px;
+        font-weight: 300;
+        color: var(--color-bg-green-text);
+        line-height: 1;
+        margin-bottom: 6px;
+      }
+      .team-stat__num sup {
+        font-size: 22px;
+        vertical-align: super;
+      }
+      .team-stat__label {
+        font-family: var(--font-sans);
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--color-gold);
+      }
+
+      /* ── SECTION DIVIDER LABEL ── */
+      .team-section-label {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 28px;
+      }
+      .team-section-label::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: rgba(201, 169, 110, 0.25);
+      }
+
+      /* ── TEAM GRID (32px gap vs grid-3's 28px) ── */
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+
+      @media (max-width: 1100px) {
+        .team-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .team-stats { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 640px) {
+        .team-grid { grid-template-columns: 1fr; gap: 20px; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <site-nav></site-nav>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+     PAGE HERO
+     ═══════════════════════════════════════════════════════════════ -->
+    <div class="page-hero" role="banner">
+      <div class="section-palm-bg" aria-hidden="true"></div>
+      <div class="section-palm-overlay" aria-hidden="true"></div>
+
+      <div class="page-hero__content container">
+        <div class="eyebrow eyebrow--center animate-fade-up animate-delay-1">
+          Elite Esthetics Academy
+        </div>
+
+        <h1
+          class="heading-1 animate-fade-up animate-delay-2"
+          style="margin-bottom: 18px"
+        >
+          Meet Our <em>Team</em>
+        </h1>
+
+        <p
+          class="body-large animate-fade-up animate-delay-3"
+          style="max-width: 560px; margin: 0 auto 36px"
+        >
+          The educators and leaders behind EEA bring real-world expertise,
+          genuine mentorship, and a shared belief that students deserve more
+          than a license.
+        </p>
+
+        <nav
+          class="nav-pills nav-pills--center animate-fade-up animate-delay-4"
+          aria-label="Page sections"
+        >
+          <a href="#leadership" class="nav-pill">Leadership</a>
+          <a href="#instructors" class="nav-pill">Instructors</a>
+          <a href="about.html" class="nav-pill">About EEA</a>
+          <a href="book-a-tour.html" class="nav-pill">Book a Tour</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+     SECTION 1 — INTRO + STATS + TEAM GRID
+     ═══════════════════════════════════════════════════════════════ -->
+    <section
+      class="section bg-cream"
+      id="leadership"
+      style="position: relative; overflow: hidden"
+    >
+      <div class="palm-deco palm-deco--dense-tr" aria-hidden="true"></div>
+      <div class="palm-deco palm-deco--dense-bl" aria-hidden="true"></div>
+
+      <div class="container" style="position: relative; z-index: 2">
+
+        <!-- Section header -->
+        <div class="section-header">
+          <div class="eyebrow eyebrow--center eyebrow--dark">Our People</div>
+          <h2 class="heading-2 on-light" style="margin-bottom: 16px">
+            Educators Who <em>Actually Practice</em>
+          </h2>
+          <p
+            class="body-large on-light"
+            style="max-width: 580px; margin: 0 auto"
+          >
+            Every instructor at Elite Esthetics Academy is an active industry
+            professional &mdash; not just a classroom teacher. You learn from
+            people who are doing the work, right now.
+          </p>
+        </div>
+
+        <!-- Stats bar -->
+        <div class="team-stats">
+          <div class="team-stat">
+            <div class="team-stat__num">6</div>
+            <div class="team-stat__label">Team Members</div>
+          </div>
+          <div class="team-stat">
+            <div class="team-stat__num">15:1</div>
+            <div class="team-stat__label">Student&ndash;Instructor Ratio</div>
+          </div>
+          <div class="team-stat">
+            <div class="team-stat__num">70<sup>+</sup></div>
+            <div class="team-stat__label">Combined Years Experience</div>
+          </div>
+          <div class="team-stat">
+            <div class="team-stat__num">100%</div>
+            <div class="team-stat__label">Licensed Professionals</div>
+          </div>
+        </div>
+
+        <!-- ── LEADERSHIP ROW ── -->
+        <div class="team-section-label">
+          <div class="eyebrow eyebrow--dark" style="margin-bottom: 0">
+            School Leadership
+          </div>
+        </div>
+
+        <div class="team-grid" style="margin-bottom: 56px">
+
+          <!-- ROBERTA -->
+          <article class="team-card">
+            <div class="team-card__photo-wrap">
+              <img
+                src="assets/images/roberta-headshot.jpg"
+                alt="Roberta Berthelson, School Director at Elite Esthetics Academy"
+                class="team-card__photo"
+                loading="lazy"
+              />
+            </div>
+            <div class="team-card__nameplate">
+              <div class="team-card__name">Roberta Berthelson</div>
+              <div class="team-card__title">
+                School Director &amp; NACCAS Compliance Coordinator
+              </div>
+            </div>
+            <div class="team-card__body">
+              <p class="team-card__bio">
+                Roberta is a Master Cosmetologist and Master Esthetician with
+                over 30 years of experience in the beauty industry. She has
+                played a key role in opening several Paul Mitchell Schools
+                across the United States. She serves as a Master Stylist,
+                Master Esthetician, and Permanent Makeup Artist at one of
+                Utah&rsquo;s top-rated salons and spas, and brings deep
+                practical and regulatory expertise to her role as School
+                Director and NACCAS Compliance Coordinator.
+              </p>
+              <blockquote class="team-card__quote">
+                &ldquo;After more than 30 years in this industry, my greatest
+                joy is watching students discover their confidence and realize
+                their potential. The skills you learn here can change your
+                life&mdash;I know because I&rsquo;ve seen it happen time and
+                time again.&rdquo;
+              </blockquote>
+              <div class="team-card__meta">
+                <div class="team-card__creds">
+                  <span class="team-card__cred-pill">Master Esthetician</span>
+                  <span class="team-card__cred-pill">Esthetic Instructor</span>
+                  <span class="team-card__cred-pill">Cosmetologist</span>
+                </div>
+                <div class="team-card__spec-label">Specialties</div>
+                <div class="team-card__specialties">
+                  Chemical Peels &middot; Hair Styling
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- SYDNEE -->
+          <article class="team-card">
+            <div class="team-card__photo-wrap">
+              <img
+                src="assets/images/sydnee-headshot.jpg"
+                alt="Sydnee Moore, Director of Education at Elite Esthetics Academy"
+                class="team-card__photo"
+                loading="lazy"
+              />
+            </div>
+            <div class="team-card__nameplate">
+              <div class="team-card__name">Sydnee Moore</div>
+              <div class="team-card__title">Director of Education</div>
+            </div>
+            <div class="team-card__body">
+              <p class="team-card__bio">
+                Sydnee is a Licensed Master Esthetician and Instructor who
+                serves as our Director of Education. With a strong background
+                in both esthetic education and medical spa management, she
+                brings a well-rounded approach to skincare training and
+                professional development. Sydnee has spent several years as a
+                lead esthetics instructor and med spa manager, and has played
+                a key role in developing EEA&rsquo;s curriculum and
+                educational standards.
+              </p>
+              <blockquote class="team-card__quote">
+                &ldquo;My goal is to help students see what&rsquo;s possible
+                for their future and give them the tools, support, and
+                confidence to achieve it.&rdquo;
+              </blockquote>
+              <div class="team-card__meta">
+                <div class="team-card__creds">
+                  <span class="team-card__cred-pill">Master Esthetician</span>
+                  <span class="team-card__cred-pill">Esthetic Instructor</span>
+                </div>
+                <div class="team-card__spec-label">Specialties</div>
+                <div class="team-card__specialties">
+                  Laser &middot; Advanced Treatments
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- CHERI -->
+          <article class="team-card">
+            <div class="team-card__photo-wrap">
+              <img
+                src="assets/images/cheri-headshot.jpg"
+                alt="Cheri Greenburg, Spa Director at Elite Esthetics Academy"
+                class="team-card__photo"
+                loading="lazy"
+              />
+            </div>
+            <div class="team-card__nameplate">
+              <div class="team-card__name">Cheri Greenburg</div>
+              <div class="team-card__title">
+                Spa Director &amp; Customer Relations
+              </div>
+            </div>
+            <div class="team-card__body">
+              <p class="team-card__bio">
+                Cheri is a Master Esthetician and Licensed Instructor with
+                extensive experience in spa management, team leadership, and
+                client care. Throughout her career she has overseen daily
+                operations, staff development, scheduling, and guest
+                experience while mentoring estheticians and supporting
+                business growth. A top graduate of her esthetics program,
+                Cheri combines real-world industry knowledge with a genuine
+                passion for education.
+              </p>
+              <blockquote class="team-card__quote">
+                &ldquo;My favorite moment is seeing a student realize just
+                how much they&rsquo;ve grown&mdash;from learning the basics
+                to confidently serving clients and stepping into their future
+                career.&rdquo;
+              </blockquote>
+              <div class="team-card__meta">
+                <div class="team-card__creds">
+                  <span class="team-card__cred-pill">Master Esthetician</span>
+                  <span class="team-card__cred-pill">Esthetic Instructor</span>
+                </div>
+                <div class="team-card__spec-label">Specialties</div>
+                <div class="team-card__specialties">
+                  Mixology &middot; Client Communication
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /leadership grid -->
+
+        <!-- ── INSTRUCTORS + OWNERSHIP ROW ── -->
+        <div class="team-section-label" id="instructors">
+          <div class="eyebrow eyebrow--dark" style="margin-bottom: 0">
+            Instructors &amp; Ownership
+          </div>
+        </div>
+
+        <div class="team-grid">
+
+          <!-- TERRA -->
+          <article class="team-card">
+            <div class="team-card__photo-wrap">
+              <img
+                src="assets/images/terra-headshot.jpg"
+                alt="Terra Ruff, Lead Instructor at Elite Esthetics Academy"
+                class="team-card__photo"
+                loading="lazy"
+              />
+            </div>
+            <div class="team-card__nameplate">
+              <div class="team-card__name">Terra Ruff</div>
+              <div class="team-card__title">Lead Instructor</div>
+            </div>
+            <div class="team-card__body">
+              <p class="team-card__bio">
+                Terra is a licensed Master Esthetician and Instructor, as well
+                as a nationally certified Medical Assistant with six years of
+                clinical experience. She brings her medical and clinical
+                background directly into the classroom to enhance student
+                learning and provide a well-rounded, results-oriented
+                education. Terra is dedicated to supporting student success by
+                fostering professional growth, technical proficiency, and
+                genuine confidence.
+              </p>
+              <blockquote class="team-card__quote">
+                &ldquo;Success in esthetics comes from combining technical
+                skill, critical thinking, and genuine care for the people you
+                serve.&rdquo;
+              </blockquote>
+              <div class="team-card__meta">
+                <div class="team-card__creds">
+                  <span class="team-card__cred-pill">NCMA</span>
+                  <span class="team-card__cred-pill">Master Esthetician</span>
+                  <span class="team-card__cred-pill">Esthetic Instructor</span>
+                </div>
+                <div class="team-card__spec-label">Specialties</div>
+                <div class="team-card__specialties">
+                  Microneedling &middot; Medical Assisting
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- BIZ -->
+          <article class="team-card">
+            <div class="team-card__photo-wrap">
+              <img
+                src="assets/images/biz-headshot.jpg"
+                alt="Elizabeth (Biz) Fulks, Instructor at Elite Esthetics Academy"
+                class="team-card__photo"
+                loading="lazy"
+              />
+            </div>
+            <div class="team-card__nameplate">
+              <div class="team-card__name">Elizabeth (Biz) Fulks</div>
+              <div class="team-card__title">Instructor</div>
+            </div>
+            <div class="team-card__body">
+              <p class="team-card__bio">
+                Biz is a licensed esthetician with a background in both
+                industry and education. She is committed to supporting
+                student success by fostering confidence, professionalism, and
+                technical skill development. Biz specializes in waxing and
+                brings a strong interest in the science of results-driven
+                treatments, turning that curiosity into engaging classroom
+                experiences for every student she teaches.
+              </p>
+              <blockquote class="team-card__quote">
+                &ldquo;The best estheticians never stop learning. Stay
+                curious, keep asking questions, and trust the process of
+                growth.&rdquo;
+              </blockquote>
+              <div class="team-card__meta">
+                <div class="team-card__creds">
+                  <span class="team-card__cred-pill">Master Esthetician</span>
+                  <span class="team-card__cred-pill">Esthetic Instructor</span>
+                </div>
+                <div class="team-card__spec-label">Specialties</div>
+                <div class="team-card__specialties">
+                  Waxing &middot; Ingredient Knowledge
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- TROY -->
+          <article class="team-card">
+            <div class="team-card__photo-wrap">
+              <img
+                src="assets/images/troy-headshot.jpg"
+                alt="Troy Martin, Founder and CEO of Elite Esthetics Academy"
+                class="team-card__photo"
+                loading="lazy"
+              />
+            </div>
+            <div class="team-card__nameplate">
+              <div class="team-card__name">Troy Martin</div>
+              <div class="team-card__title">Founder &amp; CEO</div>
+            </div>
+            <div class="team-card__body">
+              <p class="team-card__bio">
+                Troy Martin brings more than 35 years of experience in public
+                accounting, business strategy, and financial leadership. His
+                expertise spans business and personal taxation, succession
+                planning, fractional CFO services, and organizational growth.
+                Troy serves on several community boards including the Point of
+                the Mountain Chamber of Commerce, and founded Elite Esthetics
+                Academy to give students the career-ready education the
+                industry was missing.
+              </p>
+              <blockquote class="team-card__quote">
+                &ldquo;My passion is helping people build something
+                meaningful&mdash;whether that&rsquo;s a business, a career,
+                or a future they&rsquo;re proud of.&rdquo;
+              </blockquote>
+              <div class="team-card__meta">
+                <div class="team-card__creds">
+                  <span class="team-card__cred-pill">CPA</span>
+                </div>
+                <div class="team-card__spec-label">Focus</div>
+                <div class="team-card__specialties">
+                  Business Strategy &middot; Finance &middot; School Operations
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /instructors grid -->
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+     FINAL CTA
+     ═══════════════════════════════════════════════════════════════ -->
+    <section class="cta-section bg-deep">
+      <div
+        class="section-palm-bg"
+        style="opacity: 0.3"
+        aria-hidden="true"
+      ></div>
+      <div class="section-palm-overlay" aria-hidden="true"></div>
+
+      <div
+        class="container"
+        style="position: relative; z-index: 2; text-align: center"
+      >
+        <span
+          class="gold-bar"
+          style="margin: 0 auto 22px"
+          aria-hidden="true"
+        ></span>
+        <div class="eyebrow eyebrow--center">Come Meet Us</div>
+        <h2 class="heading-1" style="margin-bottom: 18px">
+          See the Team <em>In Person</em>
+        </h2>
+        <p
+          class="body-large"
+          style="max-width: 520px; margin: 0 auto 36px"
+        >
+          The best way to know if EEA is the right fit is to walk through the
+          door. Schedule a free tour and meet your future instructors
+          face-to-face &mdash; no pressure, no commitment.
+        </p>
+
+        <div
+          class="btn-group btn-group--center"
+          style="margin-bottom: 40px"
+        >
+          <a href="book-a-tour.html" class="btn btn--gold btn--lg"
+            >Book a Free Tour</a
+          >
+          <a href="enroll.html" class="btn btn--ghost btn--lg"
+            >Apply &amp; Enroll</a
+          >
+        </div>
+
+        <div class="contact-row" style="justify-content: center">
+          <a href="tel:4354857546" class="contact-row__link">
+            <div class="contact-row__dot" aria-hidden="true"></div>
+            (435) 485-7546
+          </a>
+          <a href="mailto:info@eliteestheticsa.com" class="contact-row__link">
+            <div class="contact-row__dot" aria-hidden="true"></div>
+            info@eliteestheticsa.com
+          </a>
+          <span
+            style="
+              display: flex;
+              align-items: center;
+              gap: 7px;
+              font-family: var(--font-sans);
+              font-size: var(--text-sm);
+              font-weight: 300;
+              color: var(--color-text-muted);
+            "
+          >
+            <div class="contact-row__dot" aria-hidden="true"></div>
+            66 E Wadsworth Park Dr, Suite 140 &middot; Draper, UT 84020
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <site-footer></site-footer>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+     JSON-LD STRUCTURED DATA
+     ═══════════════════════════════════════════════════════════════ -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Elite Esthetics Academy",
+        "url": "https://eliteestheticsa.com",
+        "employee": [
+          {
+            "@type": "Person",
+            "name": "Roberta Berthelson",
+            "jobTitle": "School Director & NACCAS Compliance Coordinator",
+            "worksFor": {
+              "@type": "EducationalOrganization",
+              "name": "Elite Esthetics Academy"
+            }
+          },
+          {
+            "@type": "Person",
+            "name": "Sydnee Moore",
+            "jobTitle": "Director of Education",
+            "worksFor": {
+              "@type": "EducationalOrganization",
+              "name": "Elite Esthetics Academy"
+            }
+          },
+          {
+            "@type": "Person",
+            "name": "Cheri Greenburg",
+            "jobTitle": "Spa Director & Customer Relations",
+            "worksFor": {
+              "@type": "EducationalOrganization",
+              "name": "Elite Esthetics Academy"
+            }
+          },
+          {
+            "@type": "Person",
+            "name": "Terra Ruff",
+            "jobTitle": "Lead Instructor",
+            "worksFor": {
+              "@type": "EducationalOrganization",
+              "name": "Elite Esthetics Academy"
+            }
+          },
+          {
+            "@type": "Person",
+            "name": "Elizabeth Fulks",
+            "jobTitle": "Instructor",
+            "worksFor": {
+              "@type": "EducationalOrganization",
+              "name": "Elite Esthetics Academy"
+            }
+          },
+          {
+            "@type": "Person",
+            "name": "Troy Martin",
+            "jobTitle": "Founder & CEO",
+            "worksFor": {
+              "@type": "EducationalOrganization",
+              "name": "Elite Esthetics Academy"
+            }
+          }
+        ]
+      }
+    </script>
+  </body>
+</html>
